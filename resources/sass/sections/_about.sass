@@ -1,0 +1,78 @@
+.awards
+    margin-top: 40px
+    display: flex
+    justify-content: center
+    tansition: .3s
+    &--active
+        transform: scaleX(300%)
+    &-slide
+        max-width: 526px
+        display: flex
+        justify-content: space-around
+        list-style-type: none
+        padding: 0
+    &-slide li
+        margin-right: 30px
+    &-slide li:last-child
+        margin-right: 0
+.aboutUs
+    margin-top: 40px
+    &-text
+        display: flex
+        align-items: center
+        &__leftColumn
+            display: block
+            margin-right: 30px
+            position: relative
+        &__rightColumn
+            display: block
+            position: relative
+        &__leftColumn p:nth-child(2)
+            padding: 17px 0
+        &__rightColumn p:nth-child(2)
+            padding: 3px 0
+        &__leftColumn::before
+            content: ""
+            width: 112px
+            height: 247px
+            background: url(../images/dotsquare.png) no-repeat
+            position: absolute
+            top: -32px
+            left: -113px
+        & p
+            line-height: 17px
+            letter-spacing: 0.03em
+.ourProgress
+    margin-top: 40px
+    &-title
+        display: flex
+        justify-content: center
+        +bold
+        font-size: 1.1rem
+        letter-spacing: .2em
+    &-list
+        margin-top: 30px
+        display: flex
+        justify-content: space-around
+        flex-wrap: wrap
+        list-style-type: none
+        &_item
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: center
+            flex-basis: 275px
+            &__count
+                +bold
+                font-size: 1rem
+                line-height: 18px
+                text-align: center
+                letter-spacing: 0.2em
+            &__description
+                font-size: 1rem
+                line-height: 18px
+                text-align: center
+                letter-spacing: 0.2em
+
+
+            

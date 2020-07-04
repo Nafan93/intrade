@@ -1,0 +1,153 @@
+.hero
+    &-wrap
+        width: 100%
+        padding: 11rem
+        transform: translateY(40%)
+        background: url(../images/hero-logo.png) no-repeat
+        background-position: bottom
+        background-size: contain
+    &__content
+        position: absolute
+        top: 45%
+        right: 0
+        
+.content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-end
+    &__text
+        width: 70%
+        & h1
+            font-size: 1.8rem
+            letter-spacing: 0.2em
+            line-height: 1.5em
+            +bold
+            color: $alternative-text-color
+            text-align: right
+    &-buttons
+        width: 100%
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        transform: translateY(50%)
+        &__getCOBtn
+            position: relative
+            padding: 15px 30px
+            margin-right: 35px
+            display: inline-block
+            overflow: hidden
+            background-color: transparent
+            +bold
+            text-transform: uppercase
+            letter-spacing: 0.19em
+            box-shadow: 0 30px 50px rgba(0,0,0, .5)
+            transition: transform 2s linear
+            &::before
+                content: ''
+                position: absolute
+                top: 2px
+                left: 2px
+                bottom: 2px
+                width: 50%
+                background: rgba(255, 255, 255, 0.1)
+            & span:nth-child(1)
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 2px
+                background: linear-gradient(to right, rgba(#fff, 0.05), #fff)
+                animation: buttonTop 2s linear infinite
+            & span:nth-child(2)
+                position: absolute
+                top: 0
+                right: 0
+                width: 2px
+                height: 100%
+                background: linear-gradient(to bottom, rgba(#fff, 0.05), #fff)
+                animation: buttonRight 2s linear infinite
+                animation-delay: 1s
+            & span:nth-child(3)
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                height: 2px
+                background: linear-gradient(to left, rgba(#fff, 0.05), #fff)
+                animation: buttonBottom 2s linear infinite
+            & span:nth-child(4)
+                position: absolute
+                top: 0
+                left: 0
+                width: 2px
+                height: 100%
+                background: linear-gradient(to top, rgba(#fff, 0.05), #fff) 
+                animation: buttonLeft 2s linear infinite
+                animation-delay: 1s
+            &:hover
+                &::before
+                    content: ''
+                    position: absolute
+                    top: 2px
+                    left: 2px
+                    bottom: 2px
+                    width: 50%
+                    transform: translateX(100%)
+                    background: rgba(255, 255, 255, 0.1)
+        &__goCatalogBtn
+            letter-spacing: 0.1em
+.btn_hero
+    display: block
+    color: $alternative-text-color
+    font-size: 13px
+    line-height: 17px
+    &:hover
+        color:  $alternative-text-color
+@keyframes buttonTop
+    0%
+        transform: translateX(-100%)
+    100%
+        transform: translateX(100%)
+@keyframes buttonRight
+    0%
+        transform: translateY(-100%)
+    100%
+        transform: translateY(100%)
+@keyframes buttonBottom
+    0%
+        transform: translateX(100%)
+    100%
+        transform: translateX(-100%)
+@keyframes buttonLeft
+    0%
+        transform: translateY(100%)
+    100%
+        transform: translateY(-100%)
+
+
+.mouse
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    transform: translateY(-150%)
+
+    &__btn
+        width: 13px
+        height: 30px
+        background: url(../images/mouse.svg) no-repeat
+        background-size: cover
+        color: $alternative-text-color
+        cursor: pointer
+        animation: mouseAnimate 3s linear infinite
+@keyframes mouseAnimate 
+    0% 
+        transform: translateY(-20%)
+    
+    50% 
+        transform: translateY(20%)
+    
+    100%  
+        transform: translateY(0%)
+    
+ 
