@@ -6,7 +6,7 @@
            </a>
             <div class="callback-nav" v-bind:class="{'callback-nav--active': isActive}">
                <a class="callback-nav__phone" v-on:click="isCallBackForm=!isCallBackForm"><i class="fa fa-phone" aria-hidden="true"></i></a>
-               <a class="callback-nav__message"><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+               <a class="callback-nav__message" v-on:click="isChatForm=!isChatForm"><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
            </div>
         </div>
         <!--callback button-->
@@ -40,6 +40,62 @@
             </div>
         </div>      
 
+        <div id="chatForm" class="chatForm" :class="{'chatForm-open': isChatForm}">
+            
+            <div class="chatForm-head">
+                <div class="chatForm-head_operator">
+                    <img src="" alt="" class="chatForm-head_operator__avatar">
+                    <div class="chatForm-head_operator_info">
+                        <span class="chatForm-head_operator_info__name">Артем</span>
+                        <!-- /.operator__name -->
+                        <span class="chatForm-head_operator_info__status">Online</span> 
+                        <!-- /.operator__status -->
+                    </div>
+                </div>
+                <!-- /.chatForm-head_operator -->
+                <div class="chatForm-head_close" v-on:click="isChatForm=!isChatForm">
+                    <span class="chatForm-head_close__line" ></span>
+                    <span class="chatForm-head_close__line" ></span>
+                </div>
+                <!--/ .chatForm-head_close-->
+            </div>
+            <!-- /.chatForm-head -->
+                
+            <div class="chatForm-body">
+
+                <div class="chatForm-history">
+                    <div class="chatForm-history_message chatForm-history_message__operator">
+                         <span class="chatForm-history_message__corner chatForm-history_message__operator-corner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13"><path opacity=".13" fill="#0000000" d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"></path><path fill="currentColor" d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"></path></svg>
+                        </span>
+                        <p>Hi! Are you have any questions?</p>
+                    </div>
+                    <!-- /.chatForm-history_message__operator -->
+
+                    <div class="chatForm-history_message chatForm-history_message__customer">
+                        <span class="chatForm-history_message__corner chatForm-history_message__customer-corner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13" width="8" height="13"><path opacity=".13" d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z"></path><path fill="currentColor" d="M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z"></path></svg>
+                        </span>
+                        <p>Good afternoon. I have some question</p>
+                    </div>
+                    <!-- /.chatForm-history_message__customer -->
+
+                </div>
+                <!-- /.chatForm-history -->
+
+                <div class="chatForm-inputField uk-inline">
+                    <a  type="submit" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: play-circle"></a>
+                    <input class="uk-input" placeholder="Type your message here"/>
+
+                    <!-- /# -->
+                </div>
+                <!-- /.chatForm-entryField -->
+
+            </div>
+            <!-- /.chatForm-body -->
+        </div>
+        <!-- /.online-chatForm -->
+
     </div>
 </template>
 
@@ -48,7 +104,9 @@
         data() {
             return{
             isActive : false,
-            isCallBackForm: false}
+            isCallBackForm: false,
+            isChatForm: false
+            }
         }
     }
 </script>

@@ -1,9 +1,11 @@
-<menu-component :menu="{{ json_encode($menuArr) }}"></menu-component>
-<div class="navbar">
-    <div class="uk-container">
+<menu-component :menu="{{ json_encode($menuArr ?? '') }}"></menu-component>
+<nav class="navbar">
+    <div class="container">
         <div class="navbar-wrap ">
-        <div class="logo logo__bg navbar__logo">
-            <a href="" class="logo__link"></a>
+        <div class="logo  ">
+            <a href="{{ $url=route('index') }}" class="   logo__link">
+                <img src="{{ asset('/images/logo.svg') }}" alt="">
+            </a>
             <!-- /.logo_link -->
         </div>
         <!-- /.logo -->
@@ -25,5 +27,5 @@
         <!-- /.nav-wrap -->
     </div>
     <!-- /.container -->
-</div>
+</nav>
 <!-- /.nav -->

@@ -1,12 +1,12 @@
-<header>
-    <div class="header__wraper uk-height-viewport">
-        <div class="hero section" id="home">
-            <div class="container" style="height: 100%">
+<header class="header__wraper" uk-parallax="bgy: -50; easing: -5">
+    
+        <div class="section hero" id="home">
+            <div class="container hero__container">
                 <div class="hero-wrap">
-                    <div class="content hero__content">
+                    <div class="content hero__content" >
                         <div class="content__text">
                             <h1>
-                                Оптовые поставки  нефтехимичекого и  химического сырья
+                                Оптовые поставки нефтехимичекого и химического сырья
                             </h1>
                         </div>
                         <!-- /.content__text -->
@@ -23,7 +23,6 @@
                     </div>
                 </div>
                 <!-- /.hero-wrap -->
-                
             </div>
             <!-- /.container -->
             <div class="mouse">
@@ -31,7 +30,6 @@
             </div>    
         </div>
         <!-- /.hero -->
-        </div>
-        <!-- /.wraper -->
+        
 </header>
 <!-- /.header --> 

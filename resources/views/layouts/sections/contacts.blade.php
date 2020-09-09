@@ -1,4 +1,4 @@
- <div class="section contacts" id="contacts">
+ <div class="section contacts" id="contacts" uk-scrollspy="cls: uk-animation-fade; repeat: true">
         <div class="container">
             <div class="section-wrap">
                 <div class="section-head">
@@ -9,34 +9,88 @@
                 </div>
                 <!-- /.section-head -->
                 <div class="section-content">
-                   <div class="contacts-wrap" >
-                       <div class="contacts-contact">
-                            <p>
-                                ООО "Интрейд" 8-800-700-6398
-                            <p>Офис в г. Армавир: 352922, ул. Новороссийская, дом 89, помещение 33-36
-                                телефон: (861) 376-21-08, (861) 376-21-09</p>
-                            <p>Офис в г. Ставрополь: 355016, ул. Маршала Жукова, дом 8, офис 501
-                                телефоны: (865) 229-63-98, (865) 294-16-50</p>
-                            <p>E-mail: contact@intrade.ru  
-                        </p>
+                    <div class="contacts-wrap" >
+                        <div class="contacts-addresses">
+                            <div class="contacts-addresses_title contacts__element">
+                                <legend class="uk-legend">Наши адреса</legend>
+                            </div>
+                            <!-- /.contacts-addresses_title -->
+                            <div class="contacts-addresses_general contacts__element">
+                                <span>
+                                    ООО "Интрейд" 
+                                    <a href="tel:+78007006398">8(800) 700-63-98</a>
+                                </span>
+                            </div>
+                            <!-- /.contacts-addresses_general -->
+                            <div class="contacts-addresses_city">
+                                <div class="contacts-addresses_city__title contacts__element">
+                                    <span>Офис в г. Армавир:</span>
+                                </div>
+                                <!-- /.contacts-addresses_city__title -->
+                                <div class="contacts-addresses_city__adress contacts__element">
+                                    <span>352922, ул. Новороссийская, дом 89, помещение 33-36</span>
+                                </div>
+                                <!-- /.contacts-addresses_city__adress -->
+                                <div class="contacts-addresses_city__phone contacts__element">
+                                    <span>телефоны:</span>
+                                    <a href="tel:+78613762108"> 8(861-37) 6-21-08,</a>
+                                    <a href="tel:+78613762109"> 8(861-37) 6-21-09</a>
+                                </div>
+                                <!-- /.contacts-addresses_city__phone -->
+                            </div>
+                            <!-- /.contact-addresses_city -->
+                            <div class="contacts-addresses_city">
+                                <div class="contacts-addresses_city__title contacts__element">
+                                    <span>Офис в г. Ставрополь:</span> 
+                                </div>
+                                <!-- /.contacts-addresses_city__title -->
+                                <div class="contacts-adresses_city__adress contacts__element">
+                                    <span>355016, ул. Маршала Жукова, дом 8, офис 501</span>
+                                </div>
+                                <!-- /.contacts-addresses_city__adress -->
+                                <div class="contacts-addresses_city__phone contacts__element">
+                                    <span>телефоны:</span>
+                                    <a href="tel:+78652296398">8(865) 229-63-98,</a>
+                                    <a href="tel:+78652941650">8(865) 294-16-50</a>
+                                </div>
+                                <!-- /.contacts-addresses_city__phone -->
+                            </div>
+                            <!-- /.contact-addresses_city -->     
+                            <div class="contacts-addresses_general contacts__element">
+                                <a href="mailto:contact@intrade.ru">contact@intrade.ru</a>
+                            </div> 
+
+                          
                        </div>
                        <!-- /.contacts-contact -->
                        <div class="contacts-feedback section" id="callback">
-                        <form>
-                            
-                              <div class="form-group col-md-6">
-                                <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                              </div>
-                            
-                            
-                            <button type="submit" class="btn btn-primary">Sign in</button>
-                          </form>
+                           <div class="contacts-feedback_form">
+                                <form>
+                                    <div class="contacts-feedback_form contacts__element">
+                                        <legend class="uk-legend">Запросить обратный звонок</legend>
+                                    </div>
+                                    <!-- /.contacts-feedback_form__element -->
+                                    <div class="contacts-feedback_form contacts__element">
+                                        <input type="name" class="uk-input" id="name" placeholder="Введите ваше имя">
+                                    </div>
+                                    <!-- /.contacts-feedback_form__element -->
+                                    <div class="contacts-feedback_form contacts__element">
+                                        <input type="email" class="uk-input" id="email" placeholder="Введите адрес вашей электронной почты">
+                                    </div>
+                                    <!-- /.contacts-feedback_form__element -->
+                                    <div class="contacts-feedback_form contacts__element">
+                                        <input type="phone" class="uk-input" id="phone" placeholder="Введите номер вашего телефона">
+                                    </div>
+                                    <!-- /.contacts-feedback_form__element -->
+                                    <div class="contacts-feedback_form__button  contacts__element">
+                                        <button type="submit" class="uk-button uk-button-primary">Запросить</button>
+                                    </div>
+                                    <!-- /.contacts-feedback_form__element -->                                   
+                                </form>
+                            </div>
+                           <!-- /.contacts-feedback_form -->
                        </div>
                        <!-- /.contacts-feedback -->
-                        
                     </div>
                     <!--contacts-wrap-->
                 </div>
@@ -47,7 +101,7 @@
         <!-- /.container -->
         <div class="section-footer contacts-footer">
             
-            <iframe style="pointer-events: none" src="https://yandex.ru/map-widget/v1/?um=constructor%3Abc64f86a5d91fee7e9874d50636b460fdce25769a9485ec5805ff7d175f1c549&amp;source=constructor" width="100%" height="240" frameborder="0"></iframe>
+           <map-component></map-component>
         </div> 
     </div>
     <!-- /.section contacts -->

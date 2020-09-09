@@ -9,25 +9,24 @@
 
         <title>{{ config('app.name', 'Интрейд') }}</title>
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://use.fontawesome.com/3b296b69fb.js"></script>
-
         <!-- Styles -->
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
         <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
-           
-            @include('layouts.sections.navbar')
-            
+                       
             @yield('content')
 
-            @include('layouts.sections.footer')
+            @include('layouts.footer')
+
             <call-back></call-back>  
             
         </div>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://use.fontawesome.com/3b296b69fb.js"></script>
     </body>
 
 </html>
+

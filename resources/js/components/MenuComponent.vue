@@ -3,7 +3,7 @@
     <div class="uk-container">
         <div class="menu__nav">
             <a  v-for="(item, idx) in menu" 
-                :key="idx" :href="'#' + item.url" 
+                :key="idx" :href=" item.url" 
                 :class="{'active' : idx < 1}" 
                 class="menu__link">
                 {{ item.title }}
@@ -20,7 +20,7 @@
 <script>
 export default {
     name:"Menu",
-    // Входной параметр, через который компонент будет принимать данные в JSON представление.
+    // Входной параметр, через который компонент принимает данные в JSON представление.
     props: ['menu'],
     
     mounted() {

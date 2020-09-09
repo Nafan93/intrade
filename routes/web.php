@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+
+
+
+
+Route::get('/', 'IndexController@index')->name('index');
+
+Route::get('/catalog', 'ProductController@catalog')->name('catalog');
+
+Route::get('/catalog/{url}', 'ProductController@show')->name('productShow');
+Route::get('/categories', 'CategoryController@index')->name('categories');
 
 Auth::routes();
 

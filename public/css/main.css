@@ -90,7 +90,6 @@
 .section-head__description p {
   font-family: "Roboto Bold", sans-serif;
   font-size: 1.2rem;
-  line-height: 21px;
   text-align: center;
   letter-spacing: 0.1em;
 }
@@ -128,6 +127,10 @@ body span {
   text-decoration: none;
 }
 
+.header__wraper {
+  min-height: 607px;
+}
+
 .active {
   transition: 0.5s;
 }
@@ -159,7 +162,8 @@ body span {
   top: -10px;
   right: 0;
   height: 1px;
-  transition: 0.2s;
+  transition-duration: 0.2s;
+  transition-delay: 0.3s;
   transform: scaleX(0);
 }
 
@@ -174,6 +178,12 @@ body span {
 .underline-alternative:hover::before,
 .underline-text:hover::before {
   transform: scaleX(1);
+}
+
+.transparentText__small a,
+.transparentText__small span {
+  font-size: 0.8rem;
+  color: #999999;
 }
 
 button:focus {
@@ -209,11 +219,10 @@ button:focus {
   color: #0A122D;
 }
 
-.logo__bg {
+.logo {
+  padding-top: 2px;
   width: 87px;
   height: 30px;
-  background: url(/images/logo.svg?60e862f2bce252ff4bb2662f13ac4af8) no-repeat;
-  background-size: cover;
 }
 
 .menu {
@@ -323,6 +332,17 @@ button:focus {
 
 /*Первая секция*/
 
+.hero {
+  height: 100%;
+}
+
+.hero__container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transform: translateY(-20%);
+}
+
 .hero-wrap {
   width: 100%;
   padding: 11rem;
@@ -386,8 +406,11 @@ button:focus {
   top: 2px;
   left: 2px;
   bottom: 2px;
-  width: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.8));
+  transform: translateX(-101%);
+  transition-delay: 0.2s;
+  transition-duration: 0.6s;
 }
 
 .content-buttons__getCOBtn span:nth-child(1) {
@@ -434,8 +457,8 @@ button:focus {
   background: linear-gradient(to top, rgba(255, 255, 255, 0.05), #fff);
   -webkit-animation: buttonLeft 2s linear infinite;
           animation: buttonLeft 2s linear infinite;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 .content-buttons__getCOBtn:hover::before {
@@ -444,9 +467,10 @@ button:focus {
   top: 2px;
   left: 2px;
   bottom: 2px;
-  width: 50%;
-  transform: translateX(100%);
-  background: rgba(255, 255, 255, 0.1);
+  width: 1000%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.8));
+  transform: translateX(0%);
+  transition: 0.8s;
 }
 
 .content-buttons__goCatalogBtn {
@@ -554,7 +578,7 @@ button:focus {
 .mouse__btn {
   width: 13px;
   height: 30px;
-  background: url(/images/mouse.svg?6df2fecdc2fd84da6b43278087131c2d) no-repeat;
+  background: url(/images/scrollDown.svg?38cb8e6d1ca0b98b99b116a24517d7e9) no-repeat;
   background-size: cover;
   color: #fff;
   cursor: pointer;
@@ -707,6 +731,80 @@ button:focus {
 
 /*Секция продукция*/
 
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.products-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0c30a5;
+}
+
+.products-footer a {
+  align-self: center;
+  margin-top: 5em;
+  color: #fff;
+}
+
+.products-footer a:hover {
+  color: #fff;
+}
+
+.products-footer-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: url(/images/hero-logo.png?978ddcc5d90c708c83d17ba5e1591e88) no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.product-card__body {
+  padding: 0.5em;
+}
+
+.product-card__title {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 1.3rem;
+}
+
+.product-card__desc {
+  position: relative;
+  padding-top: 0.5em;
+}
+
+.product-card__desc ::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1em;
+  width: 100%;
+  height: 0.1em;
+  background: linear-gradient(to right, rgba(153, 153, 153, 0.5), transparent);
+}
+
+.product-card__price {
+  padding: 0.5em;
+}
+
+.product-card__price span {
+  font-family: "Roboto Regular", sans-serif;
+}
+
+.product-card__footer {
+  display: flex;
+  justify-content: center;
+  padding: 1.2em;
+}
+
 /*Секция преимушества*/
 
 .adventages-footer {
@@ -811,6 +909,209 @@ button:focus {
   margin-top: 30px;
   padding: 14px 27px;
   border: 1px solid #0A122D;
+}
+
+/*Секция контакты*/
+
+.contacts-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.contacts__element {
+  padding-bottom: 1em;
+}
+
+.contacts-addresses {
+  flex: 2;
+}
+
+.contacts-addresses_general {
+  padding-top: 1em;
+}
+
+.contacts-addresses_city {
+  padding-top: 1em;
+}
+
+.contacts-addresses_city__title {
+  font-size: 1.2rem;
+}
+
+.contacts-feedback {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatForm {
+  position: fixed;
+  right: 8em;
+  bottom: 1em;
+  width: 16em;
+  height: 23em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transform: translate(50px, -60px) scale(0);
+  transform-origin: bottom right;
+  transition: 0.5s;
+}
+
+.chatForm-body {
+  padding: 0.5em;
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+}
+
+.chatForm-open {
+  transform: translate(0px, 0px) scale(1);
+}
+
+.chatForm-head {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 0.5em;
+  background: #0c30a5;
+  border-radius: 5px 5px 0 0;
+}
+
+.chatForm-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0em;
+  width: 100%;
+  height: 0.1em;
+  background: rgba(153, 153, 153, 0.5);
+}
+
+.chatForm-head_operator {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.chatForm-head_operator__avatar {
+  width: 2em;
+  height: 2em;
+  background: black;
+  border-radius: 50%;
+}
+
+.chatForm-head_operator_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.chatForm-head_operator_info__name,
+.chatForm-head_operator_info__status {
+  display: block;
+  color: #fff;
+}
+
+.chatForm-head_operator_info__status {
+  align-self: center;
+  font-size: 0.8rem;
+  line-height: 1.5em;
+}
+
+.chatForm-head_close {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: transparent;
+  width: 35px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.chatForm-head_close :nth-child(1) {
+  transform: rotate(45deg) translate(0px, 2px);
+  transform-origin: center;
+}
+
+.chatForm-head_close :nth-child(2) {
+  transform: rotate(-45deg) translate(-1px, -1px);
+  transform-origin: center;
+}
+
+.chatForm-head_close__line {
+  width: 20px;
+  height: 1px;
+  background: #fff;
+}
+
+.chatForm-history {
+  display: flex;
+  flex-direction: column;
+  height: 15.5em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: rgba(153, 153, 153, 0.5);
+  border-radius: 7.5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.chatForm-history_message {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 1px 0.5px rgba(var(--shadow-rgb), 0.13);
+  border-radius: 7.5px;
+  font-size: 0.9rem;
+}
+
+.chatForm-history_message p {
+  margin: 0;
+  padding: 10px;
+}
+
+.chatForm-history_message__corner {
+  position: absolute;
+  top: -2px;
+  z-index: 100;
+  display: block;
+  width: 8px;
+  height: 13px;
+}
+
+.chatForm-history_message__operator {
+  align-self: flex-start;
+  margin-left: 8px;
+  background: #fff;
+  border-top-left-radius: 0px;
+}
+
+.chatForm-history_message__operator-corner {
+  left: -8px;
+  color: #fff;
+}
+
+.chatForm-history_message__customer {
+  align-self: flex-end;
+  margin-right: 8px;
+  background: #dcf8c6;
+  border-top-right-radius: 0px;
+}
+
+.chatForm-history_message__customer-corner {
+  right: -8px;
+  color: #dcf8c6;
 }
 
 /* ========================================================================

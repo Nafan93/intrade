@@ -1,4 +1,4 @@
-<div class="section advantages" id="advantages" uk-scrollspy="cls: uk-animation-fade; repeat: false">
+<div class="section advantages" id="advantages" uk-scrollspy="cls: uk-animation-fade; repeat: true">
         <div class="container">
             <div class="section-wrap">
                 <div class="section-head">
@@ -84,7 +84,7 @@
             <!-- /.section-wrap -->
         </div>
         <!-- /.container -->
-        <div class="section-footer adventages-footer"></div>
+        <div class="section-footer adventages-footer" uk-parallax="bgy: -200"></div>
         <!-- /.section-footer -->
     </div>
     <!-- /.section advantages -->

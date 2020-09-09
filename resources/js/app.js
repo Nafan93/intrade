@@ -19,9 +19,12 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+Vue.component('our-progress', require('./components/OurProgress.vue').default);
 Vue.component('call-back', require('./components/Callback.vue').default);
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
+Vue.component('map-component', require('./components/MapComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,6 +36,24 @@ const app = new Vue({
     el: '#app',
 });
 
+// active class of menu items onscroll
+window.addEventListener('scroll', () => {
+    let scrollDistance = window.scrollY;
+    // console.log(scrollDistance + 'scroll distance');
+
+    document.querySelectorAll('.section').forEach((el, i) => {
+        if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
+            document.querySelectorAll('.menu__link').forEach((el) => {
+                if (el.classList.contains('active')) {
+                    el.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('.menu__link')[i].classList.add('active');
+        }
+    });
+
+});
 //ждем загрузку
 document.addEventListener('DOMContentLoaded', () => {
     //
@@ -43,12 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     //Set header height
     let screen = document.documentElement.clientHeight;
     console.log(screen, 'screen');
-    document.querySelector(".hero").style.height = screen + "px";
+    document.querySelector(".header__wraper").style.height = screen + "px";
+
     window.addEventListener('resize', function() {
 
         let screen = document.documentElement.clientHeight;
-        console.log(screen, 'screen');
-        document.querySelector(".hero").style.height = screen + "px";
+        console.log(screen, 'screen resize');
+        document.querySelector(".header__wraper").style.height = screen + "px";
     });
 
     //
@@ -58,42 +80,25 @@ document.addEventListener('DOMContentLoaded', () => {
             case btnOpenMenu.classList.contains('menu-btn--active'):
                 btnOpenMenu.classList.remove('menu-btn--active')
                 menu.classList.remove('menu_active')
-                console.log("active has removed");
+                    //console.log("active has removed");
                 break;
 
             default:
                 btnOpenMenu.classList.add('menu-btn--active')
                 menu.classList.add('menu_active')
-                console.log("active has added");
+                    //console.log("active has added");
                 break;
         }
     });
     //
 
-    // active class of menu items onscroll
-    window.addEventListener('scroll', () => {
-        let scrollDistance = window.scrollY;
-        console.log(scrollDistance);
 
-        document.querySelectorAll('.section').forEach((el, i) => {
-            if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
-                document.querySelectorAll('.menu__link').forEach((el) => {
-                    if (el.classList.contains('active')) {
-                        el.classList.remove('active');
-                    }
-                });
-
-                document.querySelectorAll('.menu__link')[i].classList.add('active');
-            }
-        });
-
-    });
 
     //плавная прокрутка
     // собираем все якоря; устанавливаем время анимации и количество кадров
     const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-        animationTime = 300,
-        framesCount = 20;
+        animationTime = 600,
+        framesCount = 100;
 
     anchors.forEach(function(item) {
         // каждому якорю присваиваем обработчик события

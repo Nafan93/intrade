@@ -1,0 +1,54 @@
+.products
+    &-grid
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))
+        grid-column-gap: 1em
+        grid-row-gap: 1em
+    &-footer
+        display: flex
+        justify-content: center
+        align-items: center
+        background: #0c30a5
+        & a
+            align-self: center
+            margin-top: 5em
+            color: $alternative-text-color
+            &:hover
+                color: $alternative-text-color
+        &-wrap
+            display: flex
+            justify-content: center
+            width: 100%
+            height: 100%
+            background: url(../images/hero-logo.png) no-repeat
+            background-position: center center
+            background-size: contain
+.product 
+    &-card 
+        &__body
+            padding: .5em
+        &__title
+            display: flex
+            justify-content: center
+            +bold
+            font-size: 1.3rem
+        &__desc
+            position: relative
+            padding-top: 0.5em
+            & ::after
+                content: ''
+                position: absolute
+                left: 0
+                bottom: -1em
+                width: 100%
+                height: .1em
+                background: linear-gradient(to right, rgba(153, 153, 153, .5), transparent)
+        &__price
+            padding: 0.5em
+            & span
+                +regular
+        &__footer
+            display: flex
+            justify-content: center
+            padding: 1.2em
+            

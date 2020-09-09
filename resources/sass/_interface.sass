@@ -9,6 +9,10 @@ body
     & span
         color: $text-color
         text-decoration: none
+.header
+    &__wraper
+        min-height: 607px
+
 .active
     transition: .5s
     &::before
@@ -30,7 +34,8 @@ body
         top: -10px
         right: 0
         height: 1px
-        transition: 0.2s
+        transition-duration: 0.2s
+        transition-delay: .3s
         transform: scaleX(0)        
     &-alternative::before
         background-color: $alternative-text-color
@@ -38,5 +43,10 @@ body
         background-color: $text-color   
     &-alternative:hover::before, &-text:hover::before
         transform: scaleX(1)
+.transparentText
+    &__small
+        & a, span
+            font-size: 0.8rem
+            color: rgba(#999, 1)
 button:focus
     outline: none
