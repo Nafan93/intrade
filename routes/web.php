@@ -23,6 +23,9 @@ Route::get('/catalog', 'ProductController@catalog')->name('catalog');
 
 Route::get('/catalog/{url}', 'ProductController@show')->name('productShow');
 Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/manufacturers', 'ManufacturerController@index')->name('manufacturers');
+Route::get('/manufacturers/{url}', 'ManufacturerController@index')->name('manufacturerShow');
+
 
 Auth::routes();
 

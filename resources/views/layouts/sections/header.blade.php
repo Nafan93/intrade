@@ -18,7 +18,7 @@
                                 <span></span>
                                 Заказать прайс-лист
                             </a>
-                            <a href="#" class="content-buttons__goCatalogBtn btn_hero underline-alternative">Перейти в каталог</a>
+                            <a href="{{ route('catalog') }}" class="content-buttons__goCatalogBtn btn_hero underline-alternative">Перейти в каталог</a>
                         </div>   
                     </div>
                 </div>

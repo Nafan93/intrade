@@ -36,9 +36,9 @@
                     </div>
                     <div class="partners-offer">
                             <span>Хотите стать нашим партнером?</span>
-                            <p>Звоните</p>
-                            <a href="tel:88007006398">8 (800) 700-63-98</a>
-                            <a href="#" class="partners-offer__btn">Стать партнером</a>
+                            <span>Звоните</span>
+                            <a href="tel:88007006398" class="partners-offer__number">8 (800) 700-63-98</a>
+                            <a href="#" class="uk-button uk-button-primary">Стать партнером</a>
                     </div>
                     <!-- /.partners-offer -->
                 </div>

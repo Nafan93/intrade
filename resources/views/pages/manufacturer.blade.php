@@ -1,9 +1,12 @@
-@extends('layouts.app')
+@extends('pages.layouts.page')
 
-    @section('content')        
-       @foreach ($manufacturers as $manufacturer)
-            <p>{{ $manufacturer->name }}
-            <a href="#">{{ $manufacturer->product->name }}</a></p>
-
-       @endforeach
-    @endsection
+@section('pagecontent')
+    <div aria-label="breadcrumb">
+        <ul class="uk-breadcrumb">
+            <li><a href="{{ route('index') }}">Главная</a></li>
+            <li><span>Производители</span></li>
+        </ul>
+    </div>
+    <!-- /.breadcrumb -->
+    <h2>Производители</h2>
+@endsection

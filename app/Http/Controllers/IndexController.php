@@ -22,11 +22,9 @@ class IndexController extends Controller
             array_push($menuArr, $item);
         }
         
-        $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => 'callback', 'order' => '8');
+        $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => '#contacts', 'order' => '8');
         array_push($menuArr, $item); 
         
-        
-
         $products = Product::select(
             ['id','name','alias','short_desc','product_price','show_on_home'])
             ->where('show_on_home', '1')

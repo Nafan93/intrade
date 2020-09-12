@@ -1,8 +1,21 @@
 *
     box-sizing: border-box
+html, body, #app
+    height: 100%
+.wrapper
+    width: 100%
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    padding: 0 0 450px
+header 
+    width: 100%
+    height: 40px
 .container
     max-width: 1170px
     margin: auto
+    &__wrap
+        padding: 4em 0
 .section
     padding-top: 10px
     &-wrap
@@ -16,7 +29,7 @@
         &__title
             display: block
             position: relative
-            & h2
+            & h2 
                 margin-bottom: 0 
                 text-transform: uppercase   
                 +bold
@@ -50,6 +63,12 @@
         height: 201px
 
 .footer
+    position: relative
+    margin: -450px auto 0
     width: 100%
     height: 450px
     background: #0A2C9A
+    & i, a, span, legend
+        color: $alternative-text-color
+    & a:hover
+        color: #c6c6c6

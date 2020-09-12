@@ -22,7 +22,6 @@ window.Vue = require('vue');
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('our-progress', require('./components/OurProgress.vue').default);
-Vue.component('call-back', require('./components/Callback.vue').default);
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 
@@ -36,29 +35,31 @@ const app = new Vue({
     el: '#app',
 });
 
-// active class of menu items onscroll
-window.addEventListener('scroll', () => {
-    let scrollDistance = window.scrollY;
-    // console.log(scrollDistance + 'scroll distance');
 
-    document.querySelectorAll('.section').forEach((el, i) => {
-        if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
-            document.querySelectorAll('.menu__link').forEach((el) => {
-                if (el.classList.contains('active')) {
-                    el.classList.remove('active');
-                }
-            });
 
-            document.querySelectorAll('.menu__link')[i].classList.add('active');
-        }
-    });
-
-});
 //ждем загрузку
 document.addEventListener('DOMContentLoaded', () => {
+
     //
+    //open menu
     const btnOpenMenu = document.querySelector('#btnOpenMenu');
     const menu = document.querySelector('#menu');
+    btnOpenMenu.addEventListener('click', () => {
+        console.log('click #btnOpenMenu')
+        switch (true) {
+            case btnOpenMenu.classList.contains('menu-btn--active'):
+                btnOpenMenu.classList.remove('menu-btn--active')
+                menu.classList.remove('menu_active')
+                console.log("active has removed");
+                break;
+
+            default:
+                btnOpenMenu.classList.add('menu-btn--active')
+                menu.classList.add('menu_active')
+                console.log("active has added");
+                break;
+        }
+    });
 
     //
     //Set header height
@@ -74,25 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //
-    btnOpenMenu.addEventListener('click', () => {
+    // active class of menu items onscroll
+    window.addEventListener('scroll', () => {
+        let scrollDistance = window.scrollY;
+        // console.log(scrollDistance + 'scroll distance');
 
-        switch (true) {
-            case btnOpenMenu.classList.contains('menu-btn--active'):
-                btnOpenMenu.classList.remove('menu-btn--active')
-                menu.classList.remove('menu_active')
-                    //console.log("active has removed");
-                break;
+        document.querySelectorAll('.section').forEach((el, i) => {
+            if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
+                document.querySelectorAll('.menu__link').forEach((el) => {
+                    if (el.classList.contains('active')) {
+                        el.classList.remove('active');
+                    }
+                });
 
-            default:
-                btnOpenMenu.classList.add('menu-btn--active')
-                menu.classList.add('menu_active')
-                    //console.log("active has added");
-                break;
-        }
+                document.querySelectorAll('.menu__link')[i].classList.add('active');
+            }
+        });
+
     });
-    //
-
-
 
     //плавная прокрутка
     // собираем все якоря; устанавливаем время анимации и количество кадров

@@ -1,5 +1,12 @@
-@extends('layouts.app')
-@include('layouts.navbar')
-@foreach ($categories as $category)
-    <div class="">{{ $category->category_name }}</div>
-@endforeach
+@extends('pages.layouts.page')
+
+@section('pagecontent')
+    <div aria-label="breadcrumb">
+        <ul class="uk-breadcrumb">
+            <li><a href="{{ route('index') }}">Главная</a></li>
+            <li><span>Категории</span></li>
+        </ul>
+    </div>
+    <!-- /.breadcrumb -->
+    <h2>Категории</h2>
+@endsection

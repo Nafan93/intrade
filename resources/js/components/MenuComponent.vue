@@ -13,8 +13,7 @@
     </div>
     <!-- /.container -->
 </div>
-<!-- /.menu -->
-    
+<!-- /.menu -->  
 </template>
 
 <script>

@@ -1,4 +1,21 @@
-<menu-component :menu="{{ json_encode($menuArr ?? '') }}"></menu-component>
+<!-- Main menu -->
+
+
+<div class="menu" id="menu">
+    <div class="uk-container">
+        <div class="menu__nav">
+            @if (isset($menusm))
+                @foreach ($menusm as $item)
+                    <a  href="{{ route('index') }}/{{ $item['url'] }}" class="menu__link">{{ $item['title'] }}</a>
+                @endforeach
+            @endif
+        </div>
+        <!-- /.menu__nav -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.menu -->
+
 <nav class="navbar">
     <div class="container">
         <div class="navbar-wrap ">

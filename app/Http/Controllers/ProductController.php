@@ -18,20 +18,13 @@ class ProductController extends Controller
      */
     public function catalog()
     {
-        $menus = Menu::orderBy('order')->get();
-        $menuArr = array();
-       
-        foreach($menus as $menu) {
-            $item = array('id' => $menu->id, 'title' => $menu->name, 'url' => $menu->url);
-            array_push($menuArr, $item);
-        }
+        
 
-        $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => 'callback', 'order' => '7');
-        array_push($menuArr, $item); 
+        $product = Product::select(['id','name','alias','desc','product_price'])->get();
 
-        $products = Product::all();
-        return view ('pages.catalog', array( 'menuArr' => $menuArr))->with('products', $products);
+        return view ('pages.catalog')->with('products', $product);
     }
+
     public function show($url)
     {
         $product = Product::select(['id','name','alias','desc','product_price'])->where('alias', $url)->first();

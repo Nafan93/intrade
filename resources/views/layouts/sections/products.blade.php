@@ -42,13 +42,13 @@
                                 <!-- Manufacturer -->
                                 @foreach ($product->manufacturers as $manufacturer)
                                     <div class="product-card__manufacturer transparentText__small">
-                                        <a href="{{ $manufacturer->manufacturer_alias}}"> {{ $manufacturer->name }} </span>
+                                        <a href="{{ route('manufacturerShow', $manufacturer->manufacturer_alias)}}"> {{ $manufacturer->name }} </span>
                                     </div>
                                 @endforeach
                                 <!-- / .Manufacturer -->
 
                                 <div class="product-card__footer">
-                                    <a href="" class="btn product-card-footer__btn underline-text" >Оставить заявку</a>
+                                    <a uk-toggle="target: #my-id"class="uk-button uk-button-primary" >Оставить заявку</a>
                                 </div>
                             </div>
                             <!-- /.product-card__body -->
@@ -62,11 +62,15 @@
         
     </div>
     <!-- /.container -->
-    <div class="section-footer products-footer">
+    <div class="products_offer">
+        <a href="{{ route('catalog') }}" class="uk-button uk-button-primary">
+            Перейти в каталог
+        </a>
+    </div>
+    <!-- /.products_offer -->
+    <div class="section-footer products-footer"  uk-parallax="bgy: 200; easing: 5">
             <div class="products-footer-wrap" uk-parallax="bgy: 200; easing: 5">
-                <a href="{{ route('catalog') }}" class="btn alternative-text underline-alternative">
-                    Перейти в каталог
-                </a>
+               
             </div>
         </div>
         <!-- /.section-footer products-footer -->
