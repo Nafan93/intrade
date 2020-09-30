@@ -15,12 +15,12 @@ class CreateManufacturersTable extends Migration
     {
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('desc');
-            $table->string('site');
-            $table->string('meta_title');
-            $table->string('meta_keywords');
-            $table->text('meta_description');
+            $table->string('name')->unique();
+            $table->text('desc')->nullable();
+            $table->string('site')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
         });
     }

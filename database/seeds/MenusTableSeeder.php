@@ -14,32 +14,32 @@ class MenuTableSeeder extends Seeder
         DB::table('menus')->truncate();
         Menu::create([
             'name' => 'Главная',
-            'url' => 'home',
+            'url' => '#home',
             'order' => '1',
         ]); 
         Menu::create([
             'name' => 'О нас',
-            'url' => 'about',
+            'url' => '#about',
             'order' => '2',
         ]); 
         Menu::create([
             'name' => 'Продукция',
-            'url' => 'products',
+            'url' => '#products',
             'order' => '3',
         ]);
         Menu::create([
             'name' => 'Преимущества',
-            'url' => 'advantages',
+            'url' => '#advantages',
             'order' => '4',
         ]); 
         Menu::create([
             'name' => 'Партнеры',
-            'url' => 'partners',
+            'url' => '#partners',
             'order' => '5',
         ]); 
         Menu::create([
             'name' => 'Контакты',
-            'url' => 'contacts',
+            'url' => '#contacts',
             'order' => '6',
         ]); 
     }

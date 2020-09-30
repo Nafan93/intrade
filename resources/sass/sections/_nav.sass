@@ -1,30 +1,50 @@
 .header__wraper
     background: #375AAB url(../images/hero-bg.png) no-repeat 100%
     background-size: cover
+    background-attachment: fixed
+    
 .navbar
     width: 100%
     height: 40px
     position: fixed
-    background-color: $alternative-text-color
+    top: 40px
+    background-color: transparent
+    transition: .5s
     z-index: 1
+    &__1
+        width: 100%
+        height: 40px
+        position: fixed
+        top: 0
+        background-color: $alternative-text-color
+        z-index: 1
+    & a
+        color: $alternative-text-color 
+    & a:hover
+        color: $alternative-text-color
     &-wrap
         width: 100%
         margin-top: 5px
         display: flex
         justify-content: space-between
         align-items: center
-    &__phone a, &__email a
-        font-size: .9rem
-        color: $text-color
+   
+    &__white
+        top: 0
+        background-color: $alternative-text-color
+        & a 
+            color: $text-color
+        & a:hover
+            color: $text-color
 .logo
     padding-top: 2px
     width: 87px
     height: 30px
-       
+
 .menu
     position: fixed
     z-index: 0
-    top: 40px
+    top: 80px
     left: 0
     width: 100%
     padding: 15px 0
@@ -34,6 +54,19 @@
     opacity: 0
     z-index: 1
     transition: 0.5s
+    &__1
+        position: fixed
+        z-index: 0
+        top: 40px
+        left: 0
+        width: 100%
+        padding: 15px 0
+        transition: transform 0.5s linear
+        background:  rgba(#23469a, .7)
+        transform: translateY(-100%)
+        opacity: 0
+        z-index: 1
+        transition: 0.5s
     &_active
         transform: translateY(0%)
         opacity: 1
@@ -79,11 +112,20 @@
             width: 25px
         &__line
             display: block
-            background-color: $text-color
+            background-color: $alternative-text-color
             width: 35px
             height: 3px
             margin: 2px 0
             transition: 0.2s
+            &__1
+                display: block
+                background-color: $text-color
+                width: 35px
+                height: 3px
+                margin: 2px 0
+                transition: 0.2s
+            &_white
+                background: $text-color
         &--active
             transition: 0.5s
             & :nth-child(1)

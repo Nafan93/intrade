@@ -84,7 +84,7 @@
             <!-- /.section-wrap -->
         </div>
         <!-- /.container -->
-        <div class="section-footer adventages-footer" uk-parallax="bgy: -200"></div>
+        <div class="section-footer adventages-footer"></div>
         <!-- /.section-footer -->
     </div>
     <!-- /.section advantages -->

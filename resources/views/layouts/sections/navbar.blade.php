@@ -1,5 +1,5 @@
 <menu-component :menu="{{ json_encode($menuArr ?? '') }}"></menu-component>
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="container">
         <div class="navbar-wrap ">
         <div class="logo  ">

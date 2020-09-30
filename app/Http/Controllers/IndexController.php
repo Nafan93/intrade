@@ -24,9 +24,11 @@ class IndexController extends Controller
         
         $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => '#contacts', 'order' => '8');
         array_push($menuArr, $item); 
+        $item = array('id' => '10', 'title' => 'Каталог', 'url' => '/catalog', 'order' => '10');
+        array_push($menuArr, $item); 
         
         $products = Product::select(
-            ['id','name','alias','short_desc','product_price','show_on_home'])
+            ['id','name','alias','description','product_price','show_on_home'])
             ->where('show_on_home', '1')
             ->get();
        

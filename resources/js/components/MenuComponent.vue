@@ -3,7 +3,7 @@
     <div class="uk-container">
         <div class="menu__nav">
             <a  v-for="(item, idx) in menu" 
-                :key="idx" :href=" item.url" 
+                :key="idx" :href="item.url" 
                 :class="{'active' : idx < 1}" 
                 class="menu__link">
                 {{ item.title }}

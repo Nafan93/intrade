@@ -44474,8 +44474,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var btnOpenMenu = document.querySelector('#btnOpenMenu');
   var menu = document.querySelector('#menu');
   btnOpenMenu.addEventListener('click', function () {
-    console.log('click #btnOpenMenu');
-
     switch (true) {
       case btnOpenMenu.classList.contains('menu-btn--active'):
         btnOpenMenu.classList.remove('menu-btn--active');
@@ -44503,8 +44501,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // active class of menu items onscroll
 
   window.addEventListener('scroll', function () {
-    var scrollDistance = window.scrollY; // console.log(scrollDistance + 'scroll distance');
-
+    var scrollDistance = window.scrollY;
     document.querySelectorAll('.section').forEach(function (el, i) {
       if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
         document.querySelectorAll('.menu__link').forEach(function (el) {
@@ -44512,14 +44509,37 @@ document.addEventListener('DOMContentLoaded', function () {
             el.classList.remove('active');
           }
         });
-        document.querySelectorAll('.menu__link')[i].classList.add('active');
+      }
+    });
+  }); //
+  //sticky navbar
+
+  window.addEventListener('scroll', function () {
+    var navbar = document.querySelector('#navbar');
+    var menuBtnLine = document.querySelectorAll('.menu-btn__line');
+    var scrollDistance = window.scrollY;
+
+    if (scrollDistance <= 40) {
+      navbar.classList.remove('navbar__white');
+      menu.style.cssText = "top: 80px";
+    } else {
+      navbar.classList.add('navbar__white');
+      menu.style.cssText = "top: 40px";
+    }
+
+    console.log(menuBtnLine.length + 'elements');
+    menuBtnLine.forEach(function (el, i) {
+      if (scrollDistance <= 40) {
+        el.classList.remove('menu-btn__line_white');
+      } else {
+        el.classList.add('menu-btn__line_white');
       }
     });
   }); //плавная прокрутка
   // собираем все якоря; устанавливаем время анимации и количество кадров
 
   var anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-      animationTime = 600,
+      animationTime = 300,
       framesCount = 100;
   anchors.forEach(function (item) {
     // каждому якорю присваиваем обработчик события

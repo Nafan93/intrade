@@ -99,7 +99,7 @@
             <!-- /.section-wrap -->
         </div>
         <!-- /.container -->
-        <div class="section-footer contacts-footer">
+        <div class="section-footer contacts">
             
            <map-component></map-component>
         </div> 

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Sertificate;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 class SertificateController extends Controller
 {
@@ -24,7 +27,9 @@ class SertificateController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sertificates.create', [
+            'sertificate' => []
+            ]);
     }
 
     /**
@@ -35,7 +40,23 @@ class SertificateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sertificate = new Sertificate([
+            'title' => $request->get('title'),
+            'product_id' => $request->get('product_id'),
+        ]);
+        Storage::makeDirectory('uploads/sertificates/sert-id-' . $sertificate->id);
+        
+            $request->file('prew')
+                ->move(storage_path() . '/app/public/uploads/sertificates/sert-id-' . $sertificate->id, 'sertificateImage.jpg');
+ 
+            $sertificate->prew = '/storage/uploads/sertificates/sert-id-' . $sertificate->id . '/sertificateImage.jpg';
+            
+            $request->file('file')
+            ->move(storage_path() . '/app/public/uploads/sertificates/sert-id-' . $sertificate->id, 'sertificateFile.pdf');
+
+        $sertificate->file = '/storage/uploads/sertificates/sert-id-' . $sertificate->id . '/sertificateFile.pdf';
+            $sertificate->save();
+        return redirect('/dashboard/products')->with('success', 'Продукт отредактирован');
     }
 
     /**

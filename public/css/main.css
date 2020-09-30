@@ -15424,7 +15424,6 @@ body,
 
 header {
   width: 100%;
-  height: 40px;
 }
 
 .container {
@@ -15498,7 +15497,7 @@ header {
 }
 
 .section-footer {
-  height: 201px;
+  height: 305px;
 }
 
 .footer {
@@ -15607,14 +15606,34 @@ button:focus {
 .header__wraper {
   background: #375AAB url(/images/hero-bg.png?71322af4b12be313e3ed15adb2525679) no-repeat 100%;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .navbar {
   width: 100%;
   height: 40px;
   position: fixed;
+  top: 40px;
+  background-color: transparent;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.navbar__1 {
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  top: 0;
   background-color: #fff;
   z-index: 1;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.navbar a:hover {
+  color: #fff;
 }
 
 .navbar-wrap {
@@ -15625,9 +15644,16 @@ button:focus {
   align-items: center;
 }
 
-.navbar__phone a,
-.navbar__email a {
-  font-size: 0.9rem;
+.navbar__white {
+  top: 0;
+  background-color: #fff;
+}
+
+.navbar__white a {
+  color: #0A122D;
+}
+
+.navbar__white a:hover {
   color: #0A122D;
 }
 
@@ -15638,6 +15664,21 @@ button:focus {
 }
 
 .menu {
+  position: fixed;
+  z-index: 0;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  transition: transform 0.5s linear;
+  background: rgba(35, 70, 154, 0.7);
+  transform: translateY(-100%);
+  opacity: 0;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.menu__1 {
   position: fixed;
   z-index: 0;
   top: 40px;
@@ -15715,11 +15756,24 @@ button:focus {
 
 .menu-btn__line {
   display: block;
+  background-color: #fff;
+  width: 35px;
+  height: 3px;
+  margin: 2px 0;
+  transition: 0.2s;
+}
+
+.menu-btn__line__1 {
+  display: block;
   background-color: #0A122D;
   width: 35px;
   height: 3px;
   margin: 2px 0;
   transition: 0.2s;
+}
+
+.menu-btn__line_white {
+  background: #0A122D;
 }
 
 .menu-btn--active {
@@ -16155,7 +16209,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0c30a5;
+  background: #375AAB;
 }
 
 .products-footer a {
@@ -16175,7 +16229,8 @@ button:focus {
   height: 100%;
   background: url(/images/logo.svg?60e862f2bce252ff4bb2662f13ac4af8) no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: 50%;
+  background-attachment: fixed;
 }
 
 .products_offer {
@@ -16229,8 +16284,10 @@ button:focus {
 /*Секция преимушества*/
 
 .adventages-footer {
-  background: url(/images/shakeHands.png?b3a73177c2a557909b441e15ca911369) no-repeat;
+  background: #375AAB url(/images/shakehands.png?87c5e9427efebd3da4e01f410e70a3c4) no-repeat;
   background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .adventage-list {

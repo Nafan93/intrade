@@ -27,13 +27,13 @@
                                 <!-- Category -->
                                 @foreach ($product->categories as $category)
                                     <div class="product-card__category transparentText__small">
-                                        <a href="{{ $category->category_alias }}"> {{ $category->category_name }} </a>
+                                        <a href="{{ route('categoryShow', $category->category_alias) }}"> {{ $category->category_name }} </a>
                                     </div>
                                 @endforeach
                                 <!--/ .Category --> 
 
                                 <div class="product-card__desc">
-                                    <p href="">{{ Str::words( $product->short_desc, 17) }}</p>
+                                    <p href="">{{ Str::words( $product->description, 17) }}</p>
                                 </div>
                                 <div class="product-card__price">
                                     <span>от {{ $product->product_price }} рублей/тонна</span>
@@ -62,15 +62,11 @@
         
     </div>
     <!-- /.container -->
-    <div class="products_offer">
-        <a href="{{ route('catalog') }}" class="uk-button uk-button-primary">
-            Перейти в каталог
-        </a>
-    </div>
-    <!-- /.products_offer -->
-    <div class="section-footer products-footer"  uk-parallax="bgy: 200; easing: 5">
-            <div class="products-footer-wrap" uk-parallax="bgy: 200; easing: 5">
-               
+    <div class="section-footer products-footer">
+            <div class="products-footer-wrap">
+                <a href="{{ route('catalog') }}" class="uk-button uk-button-default">
+                    Перейти в каталог
+                </a>
             </div>
         </div>
         <!-- /.section-footer products-footer -->

@@ -17,7 +17,8 @@ class CreateSertificatesTable extends Migration
             $table->id();
             $table->string('title');
             $table->integer('product_id')->references('id')->on('products');
-            $table->string('image');
+            $table->string('file');
+            $table->string('prew');
             $table->timestamps();
         });
     }
