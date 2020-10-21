@@ -1,12 +1,15 @@
 #Kill all containers
 #docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
-version: '3'
+version: '3.7'
 services:
     #PHP Service
     app:
         build:
             context: .
             dockerfile: docker/Dockerfile
+            args:
+                user: ${USER}
+                uid: ${UID}
         image: php_service
         container_name: app
         restart: unless-stopped
@@ -17,18 +20,16 @@ services:
         working_dir: /var/www
         volumes:
             - ./:/var/www
-            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         networks:
             - app-network
     #Nginx Service
     webserver:
         image: nginx:alpine
-        container_name: webserver
+        container_name: nginx
         restart: unless-stopped
         tty: true
         ports:
-            - "88:80"
-            - "443:443"
+            - 8000:80
         volumes:
             - ./:/var/www
             - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
