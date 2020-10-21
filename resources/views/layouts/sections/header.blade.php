@@ -11,7 +11,7 @@
                         </div>
                         <!-- /.content__text -->
                         <div class="content-buttons">
-                            <a href="#" class="content-buttons__getCOBtn btn_hero">
+                            <a href="#modal-hero" class="content-buttons__getCOBtn btn_hero" uk-toggle> 
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -29,7 +29,9 @@
                 <a href="#about" class="mouse__btn"></a>
             </div>    
         </div>
-        <!-- /.hero -->
-        
+        <!-- /.hero -->       
 </header>
 <!-- /.header --> 
+
+<modal-hero></modal-hero>
+     

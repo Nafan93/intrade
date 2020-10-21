@@ -48,8 +48,8 @@
                 </ul>
             </li>
             <li class="uk-nav-header">Заголовок</li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Пользовтели</a></li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Ссылка</a></li>
+            <li><a href="{{ route('users.index') }}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Пользовтели</a></li>
+            <li><a href="{{ route('orders.index') }}"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Заявки</a></li>
             <li class="uk-nav-divider"></li>
             <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Ссылка</a></li>
         </ul>

@@ -24,6 +24,8 @@ window.Vue = require('vue');
 Vue.component('our-progress', require('./components/OurProgress.vue').default);
 Vue.component('menu-component', require('./components/MenuComponent.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
+Vue.component('modal-hero', require('./components/modals/ModalHero.vue').default);
+Vue.component('modal-product', require('./components/modals/ModalProduct.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

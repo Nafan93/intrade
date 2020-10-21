@@ -87,9 +87,7 @@ class ProductController extends Controller
             if($request->input('manufacturers')):
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
-            if($request->input('sertificates')):
-                $product->manufacturers()->attach($request->input('sertificates'));
-            endif;
+            
    
         Storage::makeDirectory('uploads/products/prod-id-' . $product->id);
         
@@ -158,9 +156,7 @@ class ProductController extends Controller
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
        
-            if($request->input('sertificates')):
-                $product->sertificates()->attach($request->input('sertificates'));
-            endif;  
+            
           
             if ($request->hasFile('image')) {
                 

@@ -15,16 +15,6 @@
     </head>
     <body>
         <div id="app">
-            <!-- Модальное окно -->
-            <div id="my-id" uk-modal>
-                <div class="uk-modal-dialog uk-modal-body">
-                    <h2 class="uk-modal-title">Оставить заявку</h2>
-                    <div class="uk-modal-dialog">
-                        <button class="uk-modal-close-outside" type="button" uk-close></button>
-                    </div>
-                </div>
-            </div>
-            
             <div class="wrapper">
 
                 @yield('content')

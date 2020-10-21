@@ -19,12 +19,13 @@
                                 <span>
                                     ООО "Интрейд" 
                                     <a href="tel:+78007006398">8(800) 700-63-98</a>
+                                    <a href="mailto:contact@intrade.ru">contact@intrade.ru</a>
                                 </span>
                             </div>
                             <!-- /.contacts-addresses_general -->
                             <div class="contacts-addresses_city">
                                 <div class="contacts-addresses_city__title contacts__element">
-                                    <span>Офис в г. Армавир:</span>
+                                    <span class="uk-text-lead">Офис в г. Армавир:</span>
                                 </div>
                                 <!-- /.contacts-addresses_city__title -->
                                 <div class="contacts-addresses_city__adress contacts__element">
@@ -41,7 +42,7 @@
                             <!-- /.contact-addresses_city -->
                             <div class="contacts-addresses_city">
                                 <div class="contacts-addresses_city__title contacts__element">
-                                    <span>Офис в г. Ставрополь:</span> 
+                                    <span class="uk-text-lead">Офис в г. Ставрополь:</span> 
                                 </div>
                                 <!-- /.contacts-addresses_city__title -->
                                 <div class="contacts-adresses_city__adress contacts__element">
@@ -56,10 +57,6 @@
                                 <!-- /.contacts-addresses_city__phone -->
                             </div>
                             <!-- /.contact-addresses_city -->     
-                            <div class="contacts-addresses_general contacts__element">
-                                <a href="mailto:contact@intrade.ru">contact@intrade.ru</a>
-                            </div> 
-
                           
                        </div>
                        <!-- /.contacts-contact -->
@@ -67,7 +64,7 @@
                            <div class="contacts-feedback_form">
                                 <form>
                                     <div class="contacts-feedback_form contacts__element">
-                                        <legend class="uk-legend">Запросить обратный звонок</legend>
+                                        <legend class="uk-legend">Заказать обратный звонок</legend>
                                     </div>
                                     <!-- /.contacts-feedback_form__element -->
                                     <div class="contacts-feedback_form contacts__element">

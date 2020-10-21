@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 // Front-end routs
 //Homepage
 Route::get('/', 'IndexController@index')->name('index');
+Route::post('/send', 'IndexController@send')->name('send');
 //Catalog
 Route::get('/catalog', 'ProductController@catalog')->name('catalog');
 //Show product
@@ -29,12 +30,20 @@ Route::get('/manufacturers', 'ManufacturerController@listManufacturers')->name('
 Route::get('/manufacturers/{url}', 'ManufacturerController@showManufacturer')->name('manufacturerShow');
 // Back-end
 Auth::routes();
+Route::get('/admin', function () {
+    return redirect('/dashboard');
+});
+
+
+
 Route::get('/dashboard', 'AdminController@index')->name('admin')->middleware('auth');
 Route::resource('/dashboard/products', 'ProductController')->middleware('auth');
 Route::resource('/dashboard/categories', 'CategoryController')->middleware('auth');
 Route::resource('/dashboard/categories', 'CategoryController')->middleware('auth');
 Route::resource('/dashboard/manufacturers', 'ManufacturerController')->middleware('auth');
 Route::resource('/dashboard/sertificates', 'SertificateController')->middleware('auth');
+Route::resource('/dashboard/orders', 'OrderController')->middleware('auth');
+Route::resource('/dashboard/users', 'UserController')->middleware('auth');
 Auth::routes();
 /*Route::get('/dashboard/product-list', 'AdminController@list')->name('adminProductList');
 

@@ -48,10 +48,12 @@
                                 <!-- / .Manufacturer -->
 
                                 <div class="product-card__footer">
-                                    <a uk-toggle="target: #my-id"class="uk-button uk-button-primary" >Оставить заявку</a>
+                                    <a href="#modal-product" class="uk-button uk-button-primary"  uk-toggle>Оставить заявку</a>
                                 </div>
+                                <modal-product :id="{{ $product->id }}"></modal-product>
                             </div>
                             <!-- /.product-card__body -->
+                            
                         @endforeach 
                     </div>
                 @endif
@@ -72,3 +74,4 @@
         <!-- /.section-footer products-footer -->
 </div>
 <!-- /.section-products -->
+

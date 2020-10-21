@@ -28,7 +28,7 @@
             <div class="uk-card-body">
                 <form method="post" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
                     @method('PATCH') 
-                    {{ csrf_field() }}
+                    @csrf
                     <div class="uk-margin">
                         <div class="">    
                             <label class="uk-form-label" for="name">Название</label>

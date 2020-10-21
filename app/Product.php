@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Manufacturer;
 use App\Category;
 use App\Sertificate;
+use App\Order;
 
 class Product extends Model
 {
@@ -28,6 +29,10 @@ class Product extends Model
     public function sertificates()
     {
         return $this->hasMany(Sertificate::class);
+    }
+    public function order()
+    {
+        return $this->hasOne(Order::class, 'product_id');
     }
     
     protected static function boot() {

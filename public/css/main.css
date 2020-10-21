@@ -15414,6 +15414,23 @@ body,
   height: 100%;
 }
 
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto Light", sans-serif;
+  font-size: 1rem;
+}
+
+body a,
+body a:hover,
+body h2,
+body h4,
+body p,
+body span {
+  color: #0A122D;
+  text-decoration: none;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -15429,6 +15446,7 @@ header {
 .container {
   max-width: 1170px;
   margin: auto;
+  padding: 0 1em;
 }
 
 .container__wrap {
@@ -15437,6 +15455,7 @@ header {
 
 .section {
   padding-top: 10px;
+  margin: auto;
 }
 
 .section-wrap {
@@ -15520,23 +15539,6 @@ header {
 }
 
 /*Интерфейс*/
-
-body {
-  width: 100%;
-  height: 100%;
-  font-family: "Roboto Light", sans-serif;
-  font-size: 1rem;
-}
-
-body a,
-body a:hover,
-body h2,
-body h4,
-body p,
-body span {
-  color: #0A122D;
-  text-decoration: none;
-}
 
 .header__wraper {
   min-height: 607px;
@@ -16080,6 +16082,38 @@ button:focus {
   }
 }
 
+@media screen and (max-width: 767px) {
+  .hero-wrap {
+    transform: translateY(25%);
+    background-position: top;
+    background-size: 70%;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .content__text {
+    width: 100%;
+  }
+
+  .content__text h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.13em;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  .content-buttons {
+    flex-direction: column;
+    transform: translateY(30%);
+  }
+
+  .btn_hero {
+    margin-bottom: 25px;
+  }
+}
+
 /*Секция о нас*/
 
 .awards {
@@ -16432,6 +16466,13 @@ button:focus {
 
 .contacts-footer {
   height: 305px;
+}
+
+@media screen and (max-width: 767px) {
+  .contacts-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*Секция подвал*/

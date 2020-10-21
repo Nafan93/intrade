@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
 
     ],
 
@@ -227,7 +228,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
 
+    'url' => env('APP_URL', 'default'),
+    'token' => env('TELEGRAM_BOT_TOKEN'),
+    'adminEmail' => env('ADMIN_EMAIL'),
+    'chatId' => env('CHAT_ID'),
 ];
