@@ -6,7 +6,7 @@
                     <div class="content hero__content" >
                         <div class="content__text">
                             <h1>
-                                hohoОптовые поставки нефтехимичекого и химического сырья
+                                Оптовые поставки нефтехимичекого и химического сырья
                             </h1>
                         </div>
                         <!-- /.content__text -->
