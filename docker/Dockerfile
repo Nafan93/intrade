@@ -30,6 +30,9 @@ RUN echo "upload_max_filesize=120M" >> /usr/local/etc/php/conf.d/docker-php-ext-
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
+####
+#RUN groupadd -g 1000 www
+#RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Set working directory
 WORKDIR /var/www

@@ -32,9 +32,7 @@ class IndexController extends Controller
             array_push($menuArr, $item);
         }
         
-        $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => '#contacts', 'order' => '8');
-        array_push($menuArr, $item); 
-        $item = array('id' => '10', 'title' => 'Каталог', 'url' => '/catalog', 'order' => '10');
+        $item = array('id' => '7', 'title' => 'Заказать звонок', 'url' => '#feedback', 'order' => '8');
         array_push($menuArr, $item); 
         
         $products = Product::select(

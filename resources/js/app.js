@@ -37,12 +37,9 @@ const app = new Vue({
     el: '#app',
 });
 
-
-
 //ждем загрузку
 document.addEventListener('DOMContentLoaded', () => {
 
-    //
     //open menu
     const btnOpenMenu = document.querySelector('#btnOpenMenu');
     const menu = document.querySelector('#menu');
@@ -62,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     });
-
     //
     //Set header height
     let screen = document.documentElement.clientHeight;
@@ -74,26 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let screen = document.documentElement.clientHeight;
         console.log(screen, 'screen resize');
         document.querySelector(".header__wraper").style.height = screen + "px";
-    });
-
-
-
-    //
-    // active class of menu items onscroll
-    window.addEventListener('scroll', () => {
-        let scrollDistance = window.scrollY;
-
-
-
-        document.querySelectorAll('.section').forEach((el, i) => {
-            if (el.offsetTop - document.querySelector('.navbar').clientHeight <= scrollDistance) {
-                document.querySelectorAll('.menu__link').forEach((el) => {
-                    if (el.classList.contains('active')) {
-                        el.classList.remove('active');
-                    }
-                });
-            }
-        });
     });
     //
     //sticky navbar
@@ -110,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.classList.add('navbar__white');
             menu.style.cssText = "top: 40px"
         }
-        console.log(menuBtnLine.length + 'elements');
 
         menuBtnLine.forEach((el, i) => {
             if (scrollDistance <= 40) {
@@ -120,42 +95,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    //плавная прокрутка
-    // собираем все якоря; устанавливаем время анимации и количество кадров
-    const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-        animationTime = 300,
-        framesCount = 100;
-
-    anchors.forEach(function(item) {
-        // каждому якорю присваиваем обработчик события
-        item.addEventListener('click', function(e) {
-            // убираем стандартное поведение
-            e.preventDefault();
-
-            // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
-            let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset;
-
-            // запускаем интервал, в котором
-            let scroller = setInterval(function() {
-                // считаем на сколько скроллить за 1 такт
-                let scrollBy = coordY / framesCount;
-
-                // если к-во пикселей для скролла за 1 такт больше расстояния до элемента
-                // и дно страницы не достигнуто
-                if (scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
-                    // то скроллим на к-во пикселей, которое соответствует одному такту
-                    window.scrollBy(0, scrollBy);
-                } else {
-                    // иначе добираемся до элемента и выходим из интервала
-                    window.scrollTo(0, coordY);
-                    clearInterval(scroller);
-                }
-                // время интервала равняется частному от времени анимации и к-ва кадров
-            }, animationTime / framesCount);
-        });
-    });
-
-
     //
+    //плавная прокрутка
+    const makeMenuLinksSmooth = () => {
+            const menuLinks = document.querySelectorAll('.menu__link');
+
+            for (let n in menuLinks) {
+                if (menuLinks.hasOwnProperty(n)) {
+                    menuLinks[n].addEventListener('click', e => {
+                        e.preventDefault();
+                        document.querySelector(menuLinks[n].hash)
+                            .scrollIntoView({
+                                behavior: "smooth"
+                            });
+                    });
+                }
+            }
+        }
+        //
+        //отслеживание скролла
+    const spyScrolling = () => {
+        const sections = document.querySelectorAll('.section');
+
+        window.onscroll = () => {
+            const scrollPos = document.documentElement.scrollTop + 200 || document.body.scrollTop;
+
+            for (let s in sections)
+
+                if (sections.hasOwnProperty(s) && sections[s].offsetTop <= scrollPos) {
+                const id = sections[s].id;
+                document.querySelector('.active').classList.remove('active');
+                document.querySelector(`a[href*=${ id }]`).parentNode.classList.add('active');
+            }
+        }
+    }
+
+    makeMenuLinksSmooth();
+    spyScrolling();
 });

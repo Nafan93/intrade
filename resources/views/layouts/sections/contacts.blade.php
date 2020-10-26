@@ -60,7 +60,7 @@
                           
                        </div>
                        <!-- /.contacts-contact -->
-                       <div class="contacts-feedback section" id="callback">
+                       <div class="contacts-feedback section feedback" id="feedback">
                            <div class="contacts-feedback_form">
                                 <form>
                                     <div class="contacts-feedback_form contacts__element">

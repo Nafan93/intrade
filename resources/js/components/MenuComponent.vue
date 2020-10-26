@@ -2,12 +2,14 @@
 <div class="menu" id="menu">
     <div class="uk-container">
         <div class="menu__nav">
-            <a  v-for="(item, idx) in menu" 
-                :key="idx" :href="item.url" 
-                :class="{'active' : idx < 1}" 
-                class="menu__link">
-                {{ item.title }}
-            </a>
+            <li v-for="(item, idx) in menu" 
+                :key="idx" 
+                :class="{'active' : idx < 1}"
+                 class="menu__item">
+                <a  :href="item.url" class="menu__link">
+                    {{ item.title }}
+                </a>
+            </li>
         </div>
         <!-- /.menu__nav -->
     </div>
@@ -36,5 +38,9 @@ export default {
 </script>
 
 <style>
-
+.menu__item{ 
+    display: inline-block;
+    position: relative;
+    list-style-type: none;
+}
 </style>
