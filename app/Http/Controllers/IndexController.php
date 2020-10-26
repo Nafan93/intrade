@@ -77,7 +77,7 @@ class IndexController extends Controller
         if($order->product === null) {
             Mail::to($order->email)->send(new OrderCreated($order));
         } else {
-            Mail::to()->send(new NewOrder($order));
+            Mail::to($adminEmail)->send(new NewOrder($order));
         }
         Telegram::sendMessage($massage);
     }
