@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     //
     //Set header height
-    let screen = document.documentElement.clientHeight;
+    let screen = document.body.clientHeight;
     console.log(screen, 'screen');
     document.querySelector(".header__wraper").style.height = screen + "px";
 

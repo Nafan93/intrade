@@ -81,7 +81,7 @@
                                                     checked
                                                 @endif
                                             @endisset
-                                        class="uk-checkbox">
+                                            class="uk-checkbox"/>
                                         <label for="" class="uk-form-label">{{ $manufacturer->name }}</label>
                                     </div>
                                     

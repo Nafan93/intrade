@@ -4,13 +4,19 @@
     <div aria-label="breadcrumb">
     <ul class="uk-breadcrumb">
         <li><a href="{{ route('index') }}">Главная</a></li>
-        <li><a href="{{ route('categories') }}">Категории</a></li>
+        <li><a href="{{ route('catalog') }}">Коталог</a></li>
         <li><span>{{ $category->category_name }}</span></li>
     </ul>
     </div>
     <!-- /.breadcrumb -->
     <h2>Продукция в категории {{ $category->category_name }}</h2>
-    @forelse ($category->products as $product)
+    <div uk-grid>
+        <div class="uk-width-1-4@m">
+            <legend>Фильтры</legend>
+            @include('pages.layouts.filter')
+        </div>
+        <div class="uk-width-expand@m">
+            @forelse ($category->products as $product)
             <article class="uk-article">
                 <div class="uk-article-title uk-flex uk-flex-between uk-flex-middle">
                     <a class="uk-link-reset" href="{{ route('productShow', $product->alias) }}">{{ $product->name }}</a>
@@ -38,4 +44,7 @@
         @empty
             <span>Здесь пока ничего нет</span>
         @endforelse
+        </div>
+    </div>
 @endsection
+    

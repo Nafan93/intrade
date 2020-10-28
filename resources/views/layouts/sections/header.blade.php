@@ -1,5 +1,4 @@
-<header class="header__wraper" {{-- uk-parallax="bgy:-50;easing:-5" --}}>
-    
+<header class="header__wraper">
         <div class="section hero" id="home">
             <div class="container hero__container">
                 <div class="hero-wrap">

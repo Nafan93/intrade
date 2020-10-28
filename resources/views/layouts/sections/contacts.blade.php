@@ -1,4 +1,4 @@
- <div class="section contacts" id="contacts" uk-scrollspy="cls: uk-animation-fade; repeat: true">
+ <div class="section contacts" id="contacts">
         <div class="container">
             <div class="section-wrap">
                 <div class="section-head">

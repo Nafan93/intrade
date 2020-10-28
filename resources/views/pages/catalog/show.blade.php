@@ -16,17 +16,17 @@
             </div>
             <span class="uk-text-lead uk-text-meta">Категория:
                 @forelse ($product->categories as $category)
-                    <a href="{{ route('categories.index') }}"> {{ Str::lower($category->category_name) }} </a>
+                    <span class="uk-text-lead uk-text-meta"> {{ Str::lower($category->category_name) }} </span>
                     @empty
-                        <span>Без категории</span>
+                        <span class="uk-text-lead uk-text-meta">Без категории</span>
                 @endforelse
             </span>
             @if (isset($product->manufacturers))
                 <span class="uk-text-lead uk-text-meta">Производители:
                     @forelse ($product->manufacturers as $manufacturer)
-                        <a href="{{ route('manufacturers.show', $manufacturer->manufacturer_alias) }}"> {{ Str::lower($manufacturer->name) }} </a>
+                        <span class="uk-text-lead uk-text-meta"> {{ $manufacturer->name }} </span>
                         @empty
-                            <span>  </span>
+                            <span class="uk-text-lead uk-text-meta">Производитель не указан</span>
                     @endforelse
                 </span>
             @endif

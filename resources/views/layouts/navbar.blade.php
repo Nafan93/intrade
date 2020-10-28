@@ -9,15 +9,15 @@
                     <a  href="{{ route('index') }}/{{ $item['url'] }}" class="menu__link">{{ $item['title'] }}</a>
                 @endforeach
             @endif
-            <a href="{{ route('catalog') }}" class="menu__link {{ request()->is('catalog') ? 'active' : '' }}">Каталог</a>
+           <!-- <a href="{{ route('catalog') }}" class="menu__link {{ request()->is('catalog') ? 'active' : '' }}">Каталог</a>-->
         </div>
-        <!-- /.menu__nav -->
+        <!-- /.menu__nav --> 
     </div>
     <!-- /.container -->
 </div>
 <!-- /.menu -->
 
-<nav class="navbar__1">
+<nav class="navbar__1" id="navbar">
     <div class="container">
         <div class="navbar-wrap ">
         <div class="logo  ">

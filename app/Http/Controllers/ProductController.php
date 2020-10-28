@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
+
 
 use App\Manufacturer;
 use App\Sertificate;
@@ -14,11 +17,51 @@ use App\Menu;
 class ProductController extends Controller
 {
     //Front-end
-    public function catalog()
+    public function catalog(Request $request)
     {
-        $product = Product::select(['id','name','alias','description','product_price'])->get();
+        $products = Product::select(['id','name','alias','description','product_price'])->with('categories');
+       
+        if ($request->has('name')) {
+            $products->where('name', 'like', "%$request->name%");    
+        }
+        if ($request->filled('min')) {
+            $products->where('product_price', '>=', $request->min);    
+        }
+        if ($request->filled('max')) {
+            $products->where('product_price', '<=', $request->max);    
+        }
+        
+      
+        if ($request->filled('categories')) {
+            
+            $categories = $request->categories;
 
-        return view ('pages.catalog.index')->with('products', $product);
+            $products = Product::when($categories, function (Builder $query, $categories) {
+                return $query->whereHas('categories', function (Builder $query) use ($categories) {
+                    $query->whereIn('categories.id', $categories);
+                });
+            });
+            
+        }
+        
+        if ($request->has('manufacturers')) {
+            
+            $manufacturers = $request->manufacturers;
+
+            $products = Product::when($manufacturers, function (Builder $query, $manufacturers) {
+                return $query->whereHas('manufacturers', function (Builder $query) use ($manufacturers) {
+                    $query->whereIn('manufacturers.id', $manufacturers);
+                });
+            });
+            
+        }
+        
+        $products = $products->get();
+
+        return view ('pages.catalog.index', compact('products'))->with([
+            'categories' => Category::get(),
+            'manufacturers' => Manufacturer::get(),
+            ]);
     }
 
     public function showProduct($url)
@@ -155,8 +198,6 @@ class ProductController extends Controller
             if($request->input('manufacturers')):
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
-       
-            
           
             if ($request->hasFile('image')) {
                 

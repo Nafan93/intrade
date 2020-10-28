@@ -45877,7 +45877,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }); //
   //Set header height
 
-  var screen = document.documentElement.clientHeight;
+  var screen = document.body.clientHeight;
   console.log(screen, 'screen');
   document.querySelector(".header__wraper").style.height = screen + "px";
   window.addEventListener('resize', function () {
