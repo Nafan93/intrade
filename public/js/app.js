@@ -33001,7 +33001,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "menu", attrs: { id: "menu" } }, [
-    _c("div", { staticClass: "uk-container" }, [
+    _c("div", { staticClass: "container" }, [
       _c(
         "div",
         { staticClass: "menu__nav" },

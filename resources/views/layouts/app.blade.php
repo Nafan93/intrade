@@ -14,6 +14,7 @@
         <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     </head>
     <body>
+        @include('cookieConsent::index')
         <div id="app">
             <div class="wrapper">
 

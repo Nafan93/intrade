@@ -139,7 +139,25 @@
                 width: 20px
                 transform-origin: center
 
-
+@media screen and ( max-width: 779px )
+    .menu
+        height: 50%
+        background: rgba(35, 70, 154, .95)
+        &__nav
+            display: flex
+            flex-direction: column
+            height: 100%
+        &__link
+            font-size: 14px
+.active
+    &::before
+        top: -5px
+.container
+    height: 100%
+@media screen and ( max-width: 476px )        
+    .navbar
+        &__phone, &__email 
+            display: none
 
 
 

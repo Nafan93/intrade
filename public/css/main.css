@@ -15437,6 +15437,7 @@ body span {
   height: auto !important;
   height: 100%;
   padding: 0 0 450px;
+  overflow: hidden;
 }
 
 header {
@@ -15609,6 +15610,70 @@ button:focus {
   line-height: 1.4;
   color: #333;
   overflow: hidden;
+}
+
+.cookie-consent {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+.cookie-consent__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  padding: 1em;
+  background: rgba(45, 114, 217, 0.95);
+}
+
+.cookie-consent__message {
+  font-weight: 500;
+  color: #fff;
+}
+
+.cookie-consent__message a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.cookie-consent__message a:hover {
+  color: #f9f7f7;
+  text-decoration: underline;
+}
+
+.cookie-consent__buttons {
+  padding-top: 10px;
+}
+
+.cookie-consent__agree,
+.cookie-consent__disagree {
+  padding: 5px 15px;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cookie-consent__agree {
+  background: #03a728;
+}
+
+.cookie-consent__agree:hover {
+  background: #01a025;
+}
+
+.cookie-consent__disagree {
+  display: none;
+  background: #a70303;
+}
+
+.cookie-consent__disagree:hover {
+  background: #a00101;
 }
 
 /*Навигация*/
@@ -15806,6 +15871,38 @@ button:focus {
   transform-origin: center;
 }
 
+@media screen and (max-width: 779px) {
+  .menu {
+    height: 50%;
+    background: rgba(35, 70, 154, 0.95);
+  }
+
+  .menu__nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .menu__link {
+    font-size: 14px;
+  }
+}
+
+.active::before {
+  top: -5px;
+}
+
+.container {
+  height: 100%;
+}
+
+@media screen and (max-width: 476px) {
+  .navbar__phone,
+  .navbar__email {
+    display: none;
+  }
+}
+
 /*Первая секция*/
 
 .hero {
@@ -15823,7 +15920,7 @@ button:focus {
   width: 100%;
   padding: 11rem;
   transform: translateY(40%);
-  background: url(/images/logo.svg?60e862f2bce252ff4bb2662f13ac4af8) no-repeat;
+  background: url(/images/hero_logo.png?2e41fa2f6839b5fcf0e31e63c9666022) no-repeat;
   background-position: bottom;
   background-size: contain;
 }
@@ -16090,7 +16187,7 @@ button:focus {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 766px) {
   .hero-wrap {
     transform: translateY(25%);
     background-position: top;
@@ -16109,6 +16206,38 @@ button:focus {
     font-size: 1.5rem;
     letter-spacing: 0.13em;
     line-height: 1.5em;
+    text-align: center;
+  }
+
+  .content-buttons {
+    flex-direction: column;
+    transform: translateY(30%);
+  }
+
+  .btn_hero {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .hero-wrap {
+    transform: translateY(25%);
+    background-position: top;
+    background-size: 70%;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .content__text {
+    width: 100%;
+  }
+
+  .content__text h1 {
+    font-size: 1.1rem;
+    letter-spacing: 0.09em;
+    line-height: 1.1em;
     text-align: center;
   }
 
@@ -16157,6 +16286,7 @@ button:focus {
 
 .aboutUs-text {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -16487,6 +16617,7 @@ button:focus {
 
 .footer {
   padding: 1em;
+  overflow-x: hidden;
 }
 
 .footer-wrap {
@@ -16504,6 +16635,7 @@ button:focus {
   flex: 4;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: baseline;
 }
 
@@ -16568,6 +16700,7 @@ button:focus {
   left: 0;
   bottom: 0.5em;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
   padding-top: 1em;
@@ -16581,6 +16714,16 @@ button:focus {
 .footer_reg-data_inn,
 .footer_reg-data_ogrn {
   padding: 0 1em;
+}
+
+@media screen and (max-width: 779px) {
+  .footer {
+    min-height: 100%;
+  }
+
+  .footer_logo {
+    display: none;
+  }
 }
 
 .chatForm {

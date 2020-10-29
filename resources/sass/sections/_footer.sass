@@ -1,5 +1,6 @@
 .footer
     padding: 1em
+    overflow-x: hidden
     &-wrap
         display: flex
         justify-content: space-between
@@ -11,6 +12,7 @@
         flex: 4
         display: flex
         justify-content: space-between
+        flex-wrap: wrap
         align-items: baseline
         &__left
             flex: 1
@@ -52,6 +54,7 @@
         left: 0
         bottom: .5em
         display: flex
+        flex-wrap: wrap
         justify-content: space-around
         width: 100%
         padding-top: 1em
@@ -61,4 +64,8 @@
         &_inn, &_ogrn
             padding: 0 1em
             
-                
+@media screen and ( max-width: 779px )
+    .footer
+        min-height: 100%                
+        &_logo
+            display: none

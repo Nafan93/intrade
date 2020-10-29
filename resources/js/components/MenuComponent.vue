@@ -1,6 +1,6 @@
 <template>
 <div class="menu" id="menu">
-    <div class="uk-container">
+    <div class="container">
         <div class="menu__nav">
             <li v-for="(item, idx) in menu" 
                 :key="idx" 

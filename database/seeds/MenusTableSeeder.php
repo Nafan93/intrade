@@ -18,7 +18,7 @@ class MenuTableSeeder extends Seeder
             'order' => '1',
         ]); 
         Menu::create([
-            'name' => 'О нас',
+            'name' => 'О компании',
             'url' => '#about',
             'order' => '2',
         ]); 

@@ -9,7 +9,7 @@
         width: 100% 
         padding: 11rem
         transform: translateY(40%)
-        background: url(../images/logo.svg) no-repeat
+        background: url(../images/hero_logo.png) no-repeat
         background-position: bottom
         background-size: contain
     &__content
@@ -160,7 +160,7 @@
         transform: translateY(0%)
     
  
-@media screen and ( max-width: 767px )
+@media screen and ( max-width: 766px )
     .hero
         &-wrap
             transform: translateY(25%)
@@ -174,6 +174,27 @@
                 font-size: 1.5rem
                 letter-spacing: 0.13em
                 line-height: 1.5em
+                text-align: center
+        &-buttons
+            flex-direction: column
+            transform: translateY(30%)
+    .btn_hero
+        margin-bottom: 25px
+
+@media screen and ( max-width: 319px )
+    .hero
+        &-wrap
+            transform: translateY(25%)
+            background-position: top
+            background-size: 70%
+    .content
+        align-items: center
+        &__text
+            width: 100%
+            & h1
+                font-size: 1.1rem
+                letter-spacing: 0.09em
+                line-height: 1.1em
                 text-align: center
         &-buttons
             flex-direction: column
