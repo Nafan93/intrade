@@ -21,7 +21,7 @@
                 <div class="catalog-card__body">
     
                     <article class="uk-article ">
-                        <div class="uk-article-title">
+                        <div class="uk-article-title" style="margin-bottom: -20px;">
                             <a href="{{ route('productShow', $product->alias) }}"> <h3>{{ $product->name }}</h3></a>
                         </div>
                         <!-- /.uk-article-title -->
@@ -41,8 +41,8 @@
                             @endforelse
                         </div>   
                         <!-- /.uk-article-meta -->
-                        <p class="uk-text-small">{{ Str::words( $product->description, 17) }}</p>
-                        <p class="uk-text-bold">от {{ $product->product_price }} рублей/тонна</p>
+                        <p class="uk-text-small" style="margin-top: 5px;">{{ Str::words( $product->description, 17) }}</p>
+                        
                     
                     </article>
                 </div>
