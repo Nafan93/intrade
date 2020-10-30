@@ -38,7 +38,7 @@
                             <span>Хотите стать нашим партнером?</span>
                             <span>Звоните</span>
                             <a href="tel:88007006398" class="partners-offer__number">8 (800) 700-63-98</a>
-                            <a href="#" class="uk-button uk-button-primary">Стать партнером</a>
+                            <a href="#modal-bepartner" class="uk-button uk-button-primary" uk-toggle>Стать партнером</a>
                     </div>
                     <!-- /.partners-offer -->
                 </div>
@@ -47,5 +47,6 @@
             <!-- /.section-wrap -->
         </div>
         <!-- /.container -->
+        <modal-bepartner></modal-bepartner>
     </div>
     <!-- /.section parners -->

@@ -42,7 +42,7 @@
                         </div>   
                         <!-- /.uk-article-meta -->
                         <p class="uk-text-small" style="margin-top: 5px;">{{ Str::words( $product->description, 17) }}</p>
-                        
+                        <span class="uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</span>
                     
                     </article>
                 </div>

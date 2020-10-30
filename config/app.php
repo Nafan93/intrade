@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'ru_RU',
 
     /*
     |--------------------------------------------------------------------------
@@ -231,8 +231,7 @@ return [
         'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
-
-    'url' => env('APP_URL', 'default'),
+    
     'token' => env('TELEGRAM_BOT_TOKEN'),
     'adminEmail' => env('ADMIN_EMAIL'),
     'chatId' => env('CHAT_ID'),

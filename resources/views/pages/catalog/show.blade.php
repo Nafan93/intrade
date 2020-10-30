@@ -37,9 +37,8 @@
             </div>  
             @endif    
             <div>
-                <span class="uk-text-lead ">Описание</span>
+                <span class="label ">Описание</span>
                 <p class="uk-text-lead uk-text-small"> {!! $product->description !!} </p>
-        
                 <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
                 <div class="uk-flex uk-flex-middle uk-flex-column uk-margin-top">
                     @if (isset($product->sertificates))
@@ -58,10 +57,12 @@
                     
                 </div>
                 <div class="uk-margin-top">
-                    <a href="" class="uk-button uk-button-primary">Оставить заявку</a>
+                    <a href="#modal-product" class="uk-button uk-button-primary" uk-toggle>Оставить заявку</a>
                 </div>
             </div>
             </div>
         </article>
+        <modal-catalog-product :id="{{ $product->id }}"></modal-catalog-product>
     @endif
+   
 @endsection

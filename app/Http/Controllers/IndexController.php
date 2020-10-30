@@ -62,28 +62,86 @@ class IndexController extends Controller
         $order->save();
        
         $adminEmail = config('app.adminEmail');
-        $chatId = config('app.chatId');
-        $massage = [
-            'chat_id' => $chatId,
-            'text' => '
-            #новаязаявка #запрос #коммерческоепредложение
-На сайте ' . config('app.url') . ' появилась новая заявка на ' . $order->product->name . '
-
-Имя клиента: ' . $order->name . '
-Номер телефона: ' . $order->phone . '
-Электронная почта: ' . $order->email
-        ];
+        $url = config('app.url');
+        $name = $order->name;
+        $phone = $order->phone;
+        $email = $order->email;
 
         if($order->product === null) {
             Mail::to($order->email)->send(new OrderCreated($order));
+            Telegram::sendMessage([
+                'chat_id' => config('app.chatId'),
+                'text' => trans('messages.pricelist',[
+                    'url' => $url,
+                    'name' => $name,
+                    'phone' => $phone,
+                    'email' => $email
+                ])
+            ]);
+
         } else {
             Mail::to($adminEmail)->send(new NewOrder($order));
+            Telegram::sendMessage([
+                'chat_id' => config('app.chatId'),
+                'text' => trans('messages.order',[
+                    'url' => $url,
+                    'product' => $order->product->name,
+                    'name' => $name,
+                    'phone' => $phone,
+                    'email' => $email
+                ])
+            ]);
         }
-        Telegram::sendMessage($massage);
+        
     }
 
     public function callback(Request $request)
     {
-        # code...
+        $order = new Order([
+            'name' => $request->get('feedback_name'),
+            'email' => $request->get('feedback_email'),
+            'phone' => $request->get('feedback_phone'),
+            'agreement' => $request->get('feedback_agreement')
+            ]);
+            
+        $order->save();
+    
+        Telegram::sendMessage([
+            'chat_id' => config('app.chatId'),
+            'text' => trans('messages.callback',[
+                'url' => config('app.url'),
+                'name' => $order->name,
+                'phone' => $order->phone,
+                'email' => $order->email
+            ])
+        ]);
+        return redirect('/#feedback');
+    }
+    public function bePartner(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'agreement' =>'required|accepted'
+        ]);
+          
+        $order = new Order([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'status' => $request->get('status'),
+            'agreement' => $request->get('agreement')
+            ]);
+            
+        $order->save();
+       
+        Telegram::sendMessage([
+            'chat_id' => config('app.chatId'),
+            'text' => trans('messages.bepartner',[
+                'url' => config('app.url'),
+                'name' => $order->name,
+                'phone' => $order->phone,
+                'email' => $order->email
+            ])
+        ]);
     }
 }

@@ -7,11 +7,18 @@ use Illuminate\Support\Collection;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderCreated;
+use App\Mail\NewOrder;
+
+use Telegram\Bot\Laravel\Facades\Telegram;
+use Telegram\Bot\Api;
 
 use App\Manufacturer;
 use App\Sertificate;
 use App\Category;
 use App\Product;
+use App\Order;
 use App\Menu;
 
 class ProductController extends Controller
@@ -71,6 +78,40 @@ class ProductController extends Controller
         return view ('pages.catalog.show')->with(['product' => $product,
                     'categories' => Category::get()            
                     ]);
+    }
+    
+    public function productSend(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'agreement' =>'required|accepted'
+        ]);
+          
+        $order = new Order([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'product_id' => $request->get('product_id'),
+        'status' => $request->get('status'),
+        'agreement' => $request->get('agreement')
+        ]);
+        
+        $order->save();
+       
+        $adminEmail = config('app.adminEmail');
+        
+        Mail::to($adminEmail)->send(new NewOrder($order));
+        
+        Telegram::sendMessage([
+            'chat_id' => config('app.chatId'),
+            'text' => trans('messages.order',[
+                'url' => config('app.url'),
+                'product' => $order->product->name,
+                'name' => $order->name,
+                'phone' => $order->phone,
+                'email' => $order->email
+            ])
+        ]);
     }
 
     //Back-end

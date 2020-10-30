@@ -2,12 +2,12 @@
 
     <div class="cookie-consent__wrap">
         <span class="cookie-consent__message">
-            Мы используем <a href="">файлы cookie</a>, чтобы улучшить сайт для вас
+            {!! trans('cookieConsent::texts.message', ['link' => '<a href="">файлы cookie</a>']) !!}
         </span>
     
         <div class="cookie-consent__buttons">
             <button class="js-cookie-consent-agree cookie-consent__agree">
-                Принять
+                {!! trans('cookieConsent::texts.agree') !!}
             </button>
             <a  class="js-cookie-consent-disagree cookie-consent__disagree">
                 Отклонить

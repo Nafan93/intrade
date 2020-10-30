@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 // Front-end routs
 //Homepage
 Route::get('/', 'IndexController@index')->name('index');
+Route::post('/callback', 'IndexController@callback')->name('callback');
 Route::post('/send', 'IndexController@send')->name('send');
+Route::post('/bepartner', 'IndexController@bePartner')->name('bePartner');
 //Catalog
 Route::get('/catalog', 'ProductController@catalog')->name('catalog');
 //Show product
 Route::get('/catalog/{url}', 'ProductController@showProduct')->name('productShow');
+Route::post('/productsend', 'ProductController@productSend')->name('productSend');
 //Show categories
 Route::get('/categories', 'CategoryController@listCategories')->name('categories');
 //show product of category
