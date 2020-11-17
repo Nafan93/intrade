@@ -5,7 +5,7 @@
     <div class="uk-container uk-padding">
         <div aria-label="breadcrumb">
             <ul class="uk-breadcrumb">
-                <li><a href="{{ route('admin') }}">Админпанель</a></li>
+                <li><a href="{{ route('admin') }}">Панель управления</a></li>
                 <li><a href="{{ route('orders.index') }}">Заказы</a></li>
                 <li><span>Заказ № {{ $order->id }}</span></li>
             </ul>

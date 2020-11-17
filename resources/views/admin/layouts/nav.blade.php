@@ -4,17 +4,17 @@
         <ul class="uk-navbar-nav">
             <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-nav"><span uk-icon="menu"></span></button>
             <a href="#offcanvas-nav"></a>
-            <li class="{{ request()->is('admin/') ? 'uk-active' : '' }}"><a href="{{ route('admin') }}">Заявки</a></li>
-            <li class="{{ request()->is('admin/*/create') ? 'uk-active' : '' }}">
+            <li class="{{ request()->is('dashboard/orders') ? 'uk-active' : '' }}"><a href="{{ route('orders.index') }}">Заявки</a></li>
+            <li class="{{ request()->is('dashboard/*/create') ? 'uk-active' : '' }}">
                 <a href="#">Добавить</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="{{ request()->is('admin/products/create') ? 'uk-active' : '' }}">
+                        <li class="{{ request()->is('dashboard/products/create') ? 'uk-active' : '' }}">
                             <a href="{{ route('products.create') }}">Продукт</a>
                         </li>
-                        <li class="{{ request()->is('admin/categories/create') ? 'uk-active' : '' }}">
+                        <li class="{{ request()->is('dashboard/categories/create') ? 'uk-active' : '' }}">
                             <a href="{{ route('categories.create') }}">Категорию</a></li>
-                        <li class="{{ request()->is('admin/manufacturers/create') ? 'uk-active' : '' }}">
+                        <li class="{{ request()->is('dashboard/manufacturers/create') ? 'uk-active' : '' }}">
                             <a href="{{ route('manufacturers.create') }}">Производителя</a>
                         </li>
                     </ul>
@@ -39,19 +39,21 @@
     <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
         <ul class="uk-nav uk-nav-default">
-            <li class="uk-active"><a href="{{ route('products.index') }}">Продукция</a></li>
-            <li class="uk-parent">
-                <a href="#">Ссылка</a>
-                <ul class="uk-nav-sub">
-                    <li><a href="#">Ссылка</a></li>
-                    <li><a href="#">Ссылка</a></li>
-                </ul>
+            <li class="{{ request()->is('dashboard/products/*') ? 'uk-active' : '' }}">
+                <a href="{{ route('products.index') }}">Продукция</a>
             </li>
-            <li class="uk-nav-header">Заголовок</li>
-            <li><a href="{{ route('users.index') }}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Пользовтели</a></li>
-            <li><a href="{{ route('orders.index') }}"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Заявки</a></li>
+            <li class="{{ request()->is('dashboard/categories/*') ? 'uk-active' : '' }}">
+                <a href="{{ route('categories.index') }}">Категории</a>
+            </li>
+            <li class="{{ request()->is('dashboard/manufactures/*') ? 'uk-active' : '' }}">
+                <a href="{{ route('manufacturers.index') }}">Производители</a>
+            </li>
+            
             <li class="uk-nav-divider"></li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Ссылка</a></li>
+            <li><a href="{{ route('users.index') }}"><span class="uk-margin-small-right" uk-icon="icon: user"></span> Пользовтели</a></li>
+           
+            
+           
         </ul>
     </div>
 </div>

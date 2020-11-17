@@ -23,6 +23,16 @@
                         <a href="#">Политика конфиденциальности</a>
                         <a href="#">Пользовательское соглашение</a>
                         <a href="#">Карта сайта</a>
+                        @auth 
+                            <ul class="uk-navbar-nav">
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                    Выйти
+                                </a>  </li>
+                                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </ul>
+                        @endauth 
                     </div>
                </div>
                <!-- /.footer_menu__middle -->
@@ -58,13 +68,13 @@
                         </div>
                         <div class="footer_contacts_city__number">
                             <span uk-icon="icon: receiver"></span>
-                            <a href="tel:+78652296398">8(865) 229-63-98, </a>
-                            <a href="tel:+78652941650"> 8(865) 294-16-50</a>
+                            <a href="tel:+78652296398"> 8(865) 229-63-98, </a>
+                            <a href="tel:+78652941650"> 8(865) 294-16-50 </a>
                         </div>
                     </div>
                     <div class="footer_contacts_work-time">
                         <i uk-icon="icon: clock"></i>
-                        <span>ПН — ПТ 10:00 — 17:00</span>    
+                        <span> ПН — ПТ 10:00 — 17:00 </span>    
                     </div>
                     
                </div>
@@ -89,6 +99,8 @@
     
             </div>
             <!-- /.footer-copyright -->
+            
+            
         </div>
         <!-- /.footer_bottom -->
         

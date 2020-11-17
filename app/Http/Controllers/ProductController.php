@@ -171,15 +171,16 @@ class ProductController extends Controller
             if($request->input('manufacturers')):
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
-            
-   
-        Storage::makeDirectory('uploads/products/prod-id-' . $product->id);
+        
+        if ($request->file != 0) {
+            Storage::makeDirectory('uploads/products/prod-id-' . $product->id);
         
             $request->file('image')
                 ->move(storage_path() . '/app/public/uploads/products/prod-id-' . $product->id, 'productImage.jpg');
  
             $product->image = '/storage/uploads/products/prod-id-' . $product->id . '/productImage.jpg';
-            $product->save();
+        }
+        $product->save();
             
         return redirect('/dashboard/products')->with('success', 'Продукт сохранен');
     }

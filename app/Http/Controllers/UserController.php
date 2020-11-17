@@ -10,7 +10,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.users.index')->with(['users'=> User::get()]);
+        return view('admin.users.index')->with(['users'=> User::get(),
+            'roles' => Role::all(),
+            ]);
     }
 
     public function edit(User $user)
@@ -24,9 +26,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        
-        
-       
         
         $user->save();
 
