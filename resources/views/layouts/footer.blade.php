@@ -20,9 +20,9 @@
                <div class="footer_menu__middle">
                     <legend>Помощь</legend>
                     <div class="footer_menu_list">
-                        <a href="#">Политика конфиденциальности</a>
-                        <a href="#">Пользовательское соглашение</a>
-                        <a href="#">Карта сайта</a>
+                        <a href="/docs/privacy">Политика конфиденциальности</a>
+                        <a href="/docs/terms">Пользовательское соглашение</a>
+                        <a href='{{ url('sitemap.xml') }}' rel='alternate' title='Sitemap' type='application/rss+xml'>Карта сайта</a>
                         @auth 
                             <ul class="uk-navbar-nav">
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">

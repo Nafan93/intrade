@@ -26,7 +26,9 @@ class ProductController extends Controller
     //Front-end
     public function catalog(Request $request)
     {
-        $products = Product::select(['id','name','alias','description','product_price'])->with('categories');
+        $products = Product::select(
+            ['id','name','alias','description','product_price','meta_title','meta_description','meta_keywords','show_on_home']
+            )->with('categories');
        
         if ($request->has('name')) {
             $products->where('name', 'like', "%$request->name%");    
@@ -73,7 +75,9 @@ class ProductController extends Controller
 
     public function showProduct($url)
     {
-        $product = Product::select(['id','name','alias','image','description','product_price'])->where('alias', $url)->first();
+        $product = Product::select(
+            ['id','name','alias','description','product_price','meta_title','meta_description','meta_keywords','show_on_home']
+            )->where('alias', $url)->first();
         
         return view ('pages.catalog.show')->with(['product' => $product,
                     'categories' => Category::get()            

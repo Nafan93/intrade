@@ -36,7 +36,7 @@ class IndexController extends Controller
         array_push($menuArr, $item); 
         
         $products = Product::select(
-            ['id','name','alias','description','product_price','show_on_home'])
+            ['id','name','alias','description','product_price','meta_title','meta_description','meta_keywords','show_on_home'])
             ->where('show_on_home', '1')
             ->get();
        

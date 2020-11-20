@@ -1,7 +1,7 @@
 
     <form method="" action="{{ route('catalog') }}">
         <div class="uk-margin">
-            <label class="label">Название товара</label>
+            <label class="label">Поиск</label>
             <div class="uk-inline">    
                 <input type="text" class="uk-input" name="name" value="{{ request()->name }}" placeholder="Название товара"/>
             </div>

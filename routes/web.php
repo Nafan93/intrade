@@ -20,6 +20,9 @@ Route::post('/send', 'IndexController@send')->name('send');
 Route::post('/bepartner', 'IndexController@bePartner')->name('bePartner');
 //Catalog
 Route::get('/catalog', 'ProductController@catalog')->name('catalog');
+//Pages
+Route::get('/docs', 'DocController@docs')->name('docs');
+Route::get('/docs/{slug}', 'DocController@showDoc')->name('showDoc');
 //Show product
 Route::get('/catalog/{url}', 'ProductController@showProduct')->name('productShow');
 Route::post('/productsend', 'ProductController@productSend')->name('productSend');
@@ -31,9 +34,10 @@ Route::get('/categories/{url}', 'CategoryController@showCategory')->name('catego
 Route::get('/manufacturers', 'ManufacturerController@listManufacturers')->name('manufacturers');
 //Show products of manufacturer
 Route::get('/manufacturers/{url}', 'ManufacturerController@showManufacturer')->name('manufacturerShow');
-// Back-end
-Auth::routes();
+//Sitemap
+Route::get('sitemap.xml', 'SitemapController@sitemap')->name('sitemap');
 
+// Back-end
 Route::group(['middleware' => 'role:admin'], function() {
 
     Route::get('/dashboard', 'AdminController@index')->name('admin')->middleware('auth');

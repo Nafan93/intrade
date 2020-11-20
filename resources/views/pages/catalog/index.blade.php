@@ -1,5 +1,9 @@
 @extends('pages.layouts.page')
 
+@section('title', 'Каталог')
+@section('description', 'Каталог продукции')
+@section('keywords', 'Интрейд, каталог нефтехимии')
+
 @section('pagecontent')
     <div aria-label="breadcrumb">
         <ul class="uk-breadcrumb">
@@ -20,7 +24,7 @@
             @forelse ($products as $product)
                 <div class="catalog-card__body">
     
-                    <article class="uk-article ">
+                    <article class="uk-article uk-margin-bottom">
                         <div class="uk-article-title" style="margin-bottom: -20px;">
                             <a href="{{ route('productShow', $product->alias) }}"> <h3>{{ $product->name }}</h3></a>
                         </div>

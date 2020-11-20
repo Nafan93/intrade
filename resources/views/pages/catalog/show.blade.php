@@ -1,4 +1,9 @@
 @extends('pages.layouts.page')
+
+@section('title', $product->meta_title)
+@section('description', $product->meta_description)
+@section('keywords', $product->meta_keywords)
+
 @section('pagecontent')
     <div aria-label="breadcrumb">
         <ul class="uk-breadcrumb">
