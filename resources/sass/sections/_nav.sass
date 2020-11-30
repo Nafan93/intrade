@@ -24,10 +24,16 @@
         color: $alternative-text-color
     &-wrap
         width: 100%
-        margin-top: 5px
+        margin-top: -5px
         display: flex
         justify-content: space-between
         align-items: center
+        &_1
+            width: 100%
+            margin-top: 5px
+            display: flex
+            justify-content: space-between
+            align-items: center
    
     &__white
         top: 0
@@ -37,9 +43,7 @@
         & a:hover
             color: $text-color
 .logo
-    padding-top: 2px
     width: 87px
-    height: 30px
 
 .menu
     position: fixed
@@ -85,7 +89,7 @@
             content: ""
             position: absolute
             width: 100%
-            top: -10px 
+            top: -5px 
             right: 0
             height: 1px
             background-color: $alternative-text-color

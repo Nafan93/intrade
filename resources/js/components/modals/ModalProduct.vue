@@ -22,6 +22,13 @@
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: phone"></span>
+                            <masked-input class="uk-input uk-form-large" mask="\+\7 (111) 111-11-11"  type="phone" name="phone" v-model="fields.phone" placeholder="Номер телефона"/>
+                            <div v-if="errors && errors.phone" class="uk-text-danger">{{ errors.phone[0] }}</div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-inline">
                             <span class="uk-form-icon" uk-icon="icon: mail"></span>
                             <input class="uk-input uk-form-large" type="email" name="email" v-model="fields.email" placeholder="Ваш e-mail"/>
                             <div v-if="errors && errors.email" class="uk-text-danger">{{ errors.email[0] }}</div>
@@ -49,7 +56,7 @@
 </template>
 
 <script>
-
+import MaskedInput from 'vue-masked-input'
 export default {
   props: ['id'],
   data() {
@@ -82,6 +89,8 @@ export default {
       }
     },
   },
-
+  components: {
+    MaskedInput
+  },
 }
 </script>

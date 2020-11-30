@@ -1,51 +1,52 @@
-.adventages
+.advantages
     &-footer
-        background: #375AAB url(../images/advantages/shakehands.png) no-repeat
+        background: #375AAB url(../images/advantages/shakeHands.png) no-repeat
         background-position: center center
         background-size: cover
         background-attachment: fixed
-.adventage
     &-list
-        display: grid
-        grid-template-columns: repeat( auto-fit, minmax(290px, 1fr) )
-        grid-column-gap: 10px
-        grid-row-gap: 1em
-    &-item
-        padding-left: 50px
-        padding-right: 30px 
-        &__title
-            +bold
-            font-size: 14px
-            line-height: 18px
-            letter-spacing: 0.2em
-.hexagon
-    display: flex
-    justify-content: center
-    align-items: flex-start
-    &__orange
-        background: url(../images/advantages/orange_hexagon.png) no-repeat
-        background-size: contain
-        
-    &__green
-        background: url(../images/advantages/green_hexagon.png) no-repeat
-        background-size: contain
-        
-    &__pink
-        background: url(../images/advantages/pink_hexagon.png) no-repeat
-        background-size: contain
-        
-    &__blue
-        background: url(../images/advantages/blue_hexagon.png) no-repeat
-        background-size: contain
-        
-    &__orange1
-        background: url(../images/advantages/orange_hexagon.png) no-repeat
-        background-size: contain
-        
-    &__pink1
-        background: url(../images/advantages/pink_hexagon.png) no-repeat
-        background-size: contain
-        
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        &-item
+            display: flex
+            justify-content: space-between
+            padding: 2em 5em 0 3em
+            outline: none
+            &:nth-child(2n)
+                flex-direction: row-reverse
+            &__content
+                display: flex
+                flex-direction: column
+                justify-content: space-around
+                align-items: baseline
+                padding: 1em
+            &_img
+                max-width: 10rem
+            &_title
+                +bold 
+                font-size: 14px
+                line-height: 18px
+                letter-spacing: 0.2em
+
+@media screen and ( max-width: 779px )
+    .advantages
+        &-list
+            &-item 
+                &_img
+                    margin: 0 auto
+                &__content
+                    width: 100%
+                    padding: 0
+                &_title
+                    width: 100%
+                    padding-top: 1rem
+                    padding-bottom: 1rem
+                    text-align: center    
+                
+
+
+   
         
 
 

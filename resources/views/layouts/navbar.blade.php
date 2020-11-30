@@ -19,7 +19,7 @@
 
 <nav class="navbar__1" id="navbar">
     <div class="container">
-        <div class="navbar-wrap ">
+        <div class="navbar-wrap_1">
         <div class="logo  ">
             <a href="{{ $url=route('index') }}" class="   logo__link">
                 <img src="{{ asset('/images/logo.svg') }}" alt="Интрейд лого">

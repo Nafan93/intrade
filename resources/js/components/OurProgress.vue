@@ -40,7 +40,7 @@ Vue.component("counters-block", {
             if (++this.val === this.counter.max) {
               clearInterval(interval);
             }
-          }, 3000 / this.counter.max);
+          }, 6000 / this.counter.max);
         }
         
     },

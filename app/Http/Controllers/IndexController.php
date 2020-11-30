@@ -53,6 +53,7 @@ class IndexController extends Controller
           
         $order = new Order([
         'name' => $request->get('name'),
+        'phone' => $request->get('phone'),
         'email' => $request->get('email'),
         'product_id' => $request->get('product_id'),
         'status' => $request->get('status'),
@@ -99,7 +100,6 @@ class IndexController extends Controller
     {
         $order = new Order([
             'name' => $request->get('feedback_name'),
-            'email' => $request->get('feedback_email'),
             'phone' => $request->get('feedback_phone'),
             'agreement' => $request->get('feedback_agreement')
             ]);
@@ -111,8 +111,7 @@ class IndexController extends Controller
             'text' => trans('messages.callback',[
                 'url' => config('app.url'),
                 'name' => $order->name,
-                'phone' => $order->phone,
-                'email' => $order->email
+                'phone' => $order->phone
             ])
         ]);
         return redirect('/#feedback');
@@ -127,6 +126,7 @@ class IndexController extends Controller
           
         $order = new Order([
             'name' => $request->get('name'),
+            'phone' => $request->get('phone'),
             'email' => $request->get('email'),
             'status' => $request->get('status'),
             'agreement' => $request->get('agreement')

@@ -58,42 +58,12 @@
                             </div>
                             <!-- /.contact-addresses_city -->     
                           
-                       </div>
-                       <!-- /.contacts-contact -->
-                       <div class="contacts-feedback section feedback" id="feedback">
-                           <div class="contacts-feedback_form">
-                                <form method="POST" action="{{ route('callback') }}">
-                                    @csrf
-                                    
-                                    <div class="contacts-feedback_form contacts__element">
-                                        <legend class="uk-legend">Заказать обратный звонок</legend>
-                                    </div>
-                                    <!-- /.contacts-feedback_form__element -->
-                                    <div class="contacts-feedback_form contacts__element">
-                                        <input type="name" class="uk-input" name="feedback_name" id="feedback_name" placeholder="Введите ваше имя">
-                                    </div>
-                                    <!-- /.contacts-feedback_form__element -->
-                                    <div class="contacts-feedback_form contacts__element">
-                                        <input type="email" class="uk-input" name="feedback_email" id="feedback_email" placeholder="Введите адрес вашей электронной почты">
-                                    </div>
-                                    <!-- /.contacts-feedback_form__element -->
-                                    <div class="contacts-feedback_form contacts__element">
-                                        <input type="phone" class="uk-input" name="feedback_phone" id="feedback_phone" placeholder="Введите номер вашего телефона">
-                                    </div>
-                                    <div class="contacts-feedback_form contacts__element">
-                                        <input type="checkbox" class="uk-checkbox" name="feedback_agreement" id="feedback_agreement">
-                                        <label for="">Подтверждаю сагласие на обработку данных</label>
-                                    </div>
-                                    <!-- /.contacts-feedback_form__element -->
-                                    <div class="contacts-feedback_form__button  contacts__element">
-                                        <button type="submit" class="uk-button uk-button-primary">Запросить</button>
-                                    </div>
-                                    <!-- /.contacts-feedback_form__element -->                                   
-                                </form>
-                            </div>
-                           <!-- /.contacts-feedback_form -->
-                       </div>
-                       <!-- /.contacts-feedback -->
+                        </div>
+                        <!-- /.contacts-contact -->
+                        <div class="contacts-feedback section feedback" id="feedback">
+                            <contact-form></contact-form>
+                        </div>
+                        <!-- /.contacts-feedback -->
                     </div>
                     <!--contacts-wrap-->
                 </div>

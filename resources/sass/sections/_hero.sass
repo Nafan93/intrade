@@ -9,9 +9,9 @@
         width: 100% 
         padding: 11rem
         transform: translateY(40%)
-        background: url(../images/hero_logo.png) no-repeat
-        background-position: bottom
-        background-size: contain
+        background: url(../images/logo.png) no-repeat
+        background-position: -50%
+        background-size: cover
     &__content
         position: absolute
         top: 45%
@@ -151,13 +151,12 @@
         animation: mouseAnimate 3s linear infinite
 @keyframes mouseAnimate 
     0% 
-        transform: translateY(-20%)
-    
+        transform: translateY(-10%)
     50% 
         transform: translateY(20%)
-    
-    100%  
-        transform: translateY(0%)
+    100% 
+        transform: translateY(-10%)
+   
     
  
 @media screen and ( max-width: 766px )

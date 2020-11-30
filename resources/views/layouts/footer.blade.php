@@ -44,7 +44,7 @@
                                 <i uk-icon="icon: location"></i>
                             </div>
                             <div>
-                                <span>г. Армавир: 352922, ул. Новороссийская, дом 89, помещение 33-36</span>
+                                <span>&nbsp;г. Армавир: 352922, ул. Новороссийская, дом 89, помещение 33-36</span>
                             </div>
                         </div>
                         <div class="footer_contacts_city__number">
@@ -52,8 +52,8 @@
                                 <i uk-icon="icon: receiver"></i>
                             </div>
                             <div>
-                                <a href="tel:+78613762108">8(861-37) 6-21-08, </a>
-                                <a href="tel:+78613762109"> 8(861-37) 6-21-09</a>
+                                <a href="tel:+78613762108">&nbsp;8(861-37) 6-21-08, </a>
+                                <a href="tel:+78613762109">&nbsp;8(861-37) 6-21-09</a>
                             </div>  
                         </div>
                     </div>
@@ -63,18 +63,18 @@
                                 <i uk-icon="icon: location"></i>
                             </div>
                             <div>
-                                <span> г. Ставрополь: 355016, ул. Маршала Жукова, дом 8, офис 501</span>
+                                <span>&nbsp;г. Ставрополь: 355016, ул. Маршала Жукова, дом 8, офис 501</span>
                             </div>
                         </div>
                         <div class="footer_contacts_city__number">
                             <span uk-icon="icon: receiver"></span>
-                            <a href="tel:+78652296398"> 8(865) 229-63-98, </a>
-                            <a href="tel:+78652941650"> 8(865) 294-16-50 </a>
+                            <a href="tel:+78652296398">&nbsp;8(865) 229-63-98, </a>
+                            <a href="tel:+78652941650">&nbsp;8(865) 294-16-50 </a>
                         </div>
                     </div>
                     <div class="footer_contacts_work-time">
                         <i uk-icon="icon: clock"></i>
-                        <span> ПН — ПТ 10:00 — 17:00 </span>    
+                        <span>&nbsp;ПН — ПТ 10:00 — 17:00 </span>    
                     </div>
                     
                </div>

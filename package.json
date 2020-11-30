@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "uikit": "^3.5.4",
+        "vue-masked-input": "^0.5.2",
         "vue-yandex-maps": "^0.10.9"
     }
 }

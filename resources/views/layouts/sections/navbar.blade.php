@@ -4,7 +4,7 @@
         <div class="navbar-wrap ">
         <div class="logo  ">
             <a href="{{ $url=route('index') }}" class="   logo__link">
-                <img src="{{ asset('/images/logo.svg') }}" alt="Интрейд лого">
+                <img src="{{ asset('/images/logo.png') }}" alt="Интрейд">
             </a>
             <!-- /.logo_link -->
         </div>

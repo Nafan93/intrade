@@ -94,6 +94,7 @@ class ProductController extends Controller
           
         $order = new Order([
         'name' => $request->get('name'),
+        'phone' => $request->get('phone'),
         'email' => $request->get('email'),
         'product_id' => $request->get('product_id'),
         'status' => $request->get('status'),
