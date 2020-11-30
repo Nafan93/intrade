@@ -38,6 +38,7 @@ Route::get('/manufacturers/{url}', 'ManufacturerController@showManufacturer')->n
 Route::get('sitemap.xml', 'SitemapController@sitemap')->name('sitemap');
 
 // Back-end
+Auth::routes();
 Route::group(['middleware' => 'role:admin'], function() {
 
     Route::get('/dashboard', 'AdminController@index')->name('admin')->middleware('auth');
