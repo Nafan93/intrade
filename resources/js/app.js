@@ -27,6 +27,7 @@ Vue.component('map-component', require('./components/MapComponent.vue').default)
 Vue.component('modal-hero', require('./components/modals/ModalHero.vue').default);
 Vue.component('modal-product', require('./components/modals/ModalProduct.vue').default);
 Vue.component('modal-bepartner', require('./components/modals/ModalBeParter.vue').default);
+Vue.component('modal-catalog-product', require('./components/modals/ModalCatalogProduct.vue').default);
 Vue.component('contact-form', require('./components/ContactForm.vue').default);
 
 /**

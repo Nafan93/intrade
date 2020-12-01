@@ -45,17 +45,14 @@
                 @endforelse
             </span>
             <div class="uk-margin-top uk-flex">
-                @if (isset($product->image))
+                @if (!empty($product->image))
             <div class="uk-width-1-3 uk-margin-right">
                 <img src="{{ $product->image }}" alt="{{ $product->name }}" style="width: 200px">
             </div>  
             @endif    
             <div>
-                <span class="uk-text-lead ">Описание</span>
-                <p class="uk-text-lead uk-text-small"> {!! $product->description !!} </p>
-           
+                <p class="uk-text-lead uk-text-small"> {{ $product->description }} </p>
                 <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
-
             </div>
             </div>
             <div class="uk-flex uk-flex-middle uk-flex-column uk-margin-top">
@@ -64,14 +61,20 @@
                 @endif
                 <div class="uk-flex uk-flex-around uk-width-1-2 uk-margin-top">
                     @forelse ($product->sertificates as $sertificate)
-                       <a href="{{ $sertificate->file }}" target="_blank" class="uk-flex uk-flex-column uk-flex-middle">
-                           <img src="{{ $sertificate->prew }}" alt="{{ $sertificate->title }}" class="uk-padding-small" style="width: 98px">
-                           <span>{{ $sertificate->title }}</span>
-                       </a>
+                       <div>
+                        <a href="{{ $sertificate->file }}" target="_blank" class="uk-flex uk-flex-column uk-flex-middle">
+                            <img src="{{ $sertificate->prew }}" alt="{{ $sertificate->title }}" class="uk-padding-small" style="width: 98px">
+                            <span>{{ $sertificate->title }}</span>
+                        </a>
+                       </div>
                     @empty
-                    <span></span>
+                    <span>Здесь ничего нет. Но можно добавить</span>
                     @endforelse
                 </div>
+                <div class="uk-padding">
+                    <a href="{{ route('sertificates.create', $product->id) }}" class="uk-button uk-button-primary">Добавить сертификат</a>
+                </div>
+                
             </div>
             
         </article>

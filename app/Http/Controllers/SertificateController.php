@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sertificate;
-
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
@@ -25,11 +25,13 @@ class SertificateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+        $product = Product::select(['id','name'])->where('id', $id)->first();
+        
         return view('admin.sertificates.create', [
             'sertificate' => []
-            ]);
+            ])->with('product', $product);
     }
 
     /**
@@ -44,19 +46,27 @@ class SertificateController extends Controller
             'title' => $request->get('title'),
             'product_id' => $request->get('product_id'),
         ]);
-        Storage::makeDirectory('uploads/sertificates/sert-id-' . $sertificate->id);
+        $sertificate->save();
+        $id = $sertificate->product_id;
+        $product = Product::select(['id','alias'])->where('id', $id)->first();
+        
+        if($request != null) {
+            Storage::makeDirectory('uploads/sertificates/product_' . $product->alias);
         
             $request->file('prew')
-                ->move(storage_path() . '/app/public/uploads/sertificates/sert-id-' . $sertificate->id, 'sertificateImage.jpg');
+                ->move(storage_path() . '/app/public/uploads/sertificates/product_' . $product->alias . '/prev',  $sertificate->slug . '.jpg');
  
-            $sertificate->prew = '/storage/uploads/sertificates/sert-id-' . $sertificate->id . '/sertificateImage.jpg';
+            $sertificate->prew = '/storage/uploads/sertificates/product_' . $product->alias . '/prev' . '/' . $sertificate->slug . '.jpg';
             
             $request->file('file')
-            ->move(storage_path() . '/app/public/uploads/sertificates/sert-id-' . $sertificate->id, 'sertificateFile.pdf');
+            ->move(storage_path() . '/app/public/uploads/sertificates/product_' . $product->alias,  $sertificate->slug . '.pdf');
 
-        $sertificate->file = '/storage/uploads/sertificates/sert-id-' . $sertificate->id . '/sertificateFile.pdf';
-            $sertificate->save();
-        return redirect('/dashboard/products')->with('success', 'Продукт отредактирован');
+            $sertificate->file = '/storage/uploads/sertificates/product_' . $product->alias . '/' . $sertificate->slug  . '.pdf';
+        }
+       
+        $sertificate->save();
+
+        return redirect()->route('products.show', [$product->alias]);
     }
 
     /**
@@ -101,6 +111,6 @@ class SertificateController extends Controller
      */
     public function destroy(Sertificate $sertificate)
     {
-        //
+       //
     }
 }

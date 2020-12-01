@@ -42,8 +42,7 @@
             </div>  
             @endif    
             <div>
-                <span class="label ">Описание</span>
-                <p class="uk-text-lead uk-text-small"> {!! $product->description !!} </p>
+                <p class="uk-text-lead uk-text-small">{{ $product->description }} </p>
                 <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
                 <div class="uk-flex uk-flex-middle uk-flex-column uk-margin-top">
                     @if (isset($product->sertificates))

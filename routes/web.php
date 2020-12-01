@@ -47,6 +47,7 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::resource('/dashboard/categories', 'CategoryController')->middleware('auth');
     Route::resource('/dashboard/manufacturers', 'ManufacturerController')->middleware('auth');
     Route::resource('/dashboard/sertificates', 'SertificateController')->middleware('auth');
+    Route::get('/dashboard/sertificates/create/{id}', 'SertificateController@create')->middleware('auth')->name('sertificates.create');
     Route::resource('/dashboard/orders', 'OrderController')->middleware('auth');
     Route::resource('/dashboard/users', 'UserController')->middleware('auth');
  

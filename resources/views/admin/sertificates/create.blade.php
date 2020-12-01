@@ -34,21 +34,22 @@
                         </div>
                         <div class="uk-margin">
                             <div class="uk-inline">    
-                                <input type="text" class="uk-input uk-form-width-large" id="product_id" name="product_id" placeholder="Produc_id"/>
+                                <input type="text" class="uk-hidden" id="product_id" name="product_id" value="{{ $product->id }}" placeholder="Product_id"/>
                             </div>
                         </div>
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <div class="js-upload" uk-form-custom>
-                                    <input type="file" name="prew" multiple>
+                                    <input type="file" name="prew">
                                     <button class="uk-button uk-button-default" type="button" tabindex="-1">Изображение</button>
                                 </div>
+                                <span>Необходимо для отображения миниатюры файла на сайте</span>
                             </div> 
                         </div>
                         <div class="uk-margin">
                             <div class="uk-inline">
                                 <div class="js-upload" uk-form-custom>
-                                    <input type="file" name="file" multiple>
+                                    <input type="file" name="file">
                                     <button class="uk-button uk-button-default" type="button" tabindex="-1">Сертификат</button>
                                 </div>
                             </div> 

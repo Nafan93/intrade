@@ -176,14 +176,16 @@ class ProductController extends Controller
             if($request->input('manufacturers')):
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
-        
+
+        $product->save();
+
         if ($request->file != 0) {
-            Storage::makeDirectory('uploads/products/prod-id-' . $product->id);
+            Storage::makeDirectory('uploads/products/' . $product->alias);
         
             $request->file('image')
-                ->move(storage_path() . '/app/public/uploads/products/prod-id-' . $product->id, 'productImage.jpg');
+                ->move(storage_path() . '/app/public/uploads/products/' . $product->alias, $product->alias . '_image.jpg');
  
-            $product->image = '/storage/uploads/products/prod-id-' . $product->id . '/productImage.jpg';
+            $product->image = '/storage/uploads/products/' . $product->alias . '/' . $product->alias . '_image.jpg';
         }
         $product->save();
             
@@ -246,15 +248,14 @@ class ProductController extends Controller
                 $product->manufacturers()->attach($request->input('manufacturers'));
             endif;
           
-            if ($request->hasFile('image')) {
-                
-                $request->file('image')->move(
-                    storage_path() . '/app/public/uploads/products/prod-id-' . $product->id,
-                    'productImage.jpg'
-                );
-                $product->image = '/storage/uploads/products/prod-id-' . $product->id . '/productImage.jpg';
-            }
-            $product->save();   
+        if ($request->hasFile('image')) {
+            
+            $request->file('image')->move(
+                storage_path() . '/app/public/uploads/products/' . $product->alias, $product->alias . '_image.jpg'
+            );
+            $product->image = '/storage/uploads/products/' . $product->alias . '/' . $product->alias . '_image.jpg';
+        }
+        $product->save();   
             
         return redirect('/dashboard/products')->with('success', 'Продукт отредактирован');
     }

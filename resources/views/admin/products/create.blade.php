@@ -86,30 +86,10 @@
                                 <input type="text" class="uk-input uk-form-width-large" name="product_price" placeholder="Цена"/>
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-inline">
-                                <button class="uk-button uk-button-default" type="button">Сертификаты</button>
-                                <div uk-dropdown="mode: click" style="width: 100%">
-                                    
-                                    <a href="{{ route('sertificates.create') }}" >Добавить сертификат</a>
-                                    
-                                    <hr>
-                                    @foreach ($sertificates as $sertificate)
-                                        <div class="controls">
-                                            
-                                            <input type="checkbox" name="sertificates[]" value="{{ $sertificate->id ?? '' }}"
-                                                @isset($product->id)   
-                                                    @if ($product->sertificates->contains('id', $sertificate->id))
-                                                        checked
-                                                    @endif
-                                                @endisset
-                                            class="uk-checkbox">
-                                            <label for="" class="uk-form-label">{{ $sertificate->title }}</label>
-                                        </div>
-                                        
-                                    @endforeach
-                                </div>
-                            </div>
+                        <div class="uk-flex uk-flex-center" style="align-items: flex-end">
+                            <hr class="uk-divider-small">
+                            <span class="uk-text-lead uk-margin-left uk-margin-right">SEO</span>
+                            <hr class="uk-divider-small">
                         </div>
                         <div class="uk-margin">
                             <div class="uk-inline">
