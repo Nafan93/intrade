@@ -16944,7 +16944,7 @@ button:focus {
 
 .catalog {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(80%, 1fr));
   grid-column-gap: 1em;
   grid-row-gap: 1em;
 }
