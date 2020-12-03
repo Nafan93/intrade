@@ -10,5 +10,6 @@
             @include('layouts.sections.partners')
             @include('layouts.sections.contacts') 
         </main>
+        <a href="#" id="totop" uk-totop uk-scroll></a>
         <!-- /main -->
     @endsection

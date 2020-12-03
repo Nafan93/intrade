@@ -17,32 +17,71 @@
         margin-right: 0
 .aboutUs
     margin-top: 40px
-    &-text
-        display: flex
-        flex-wrap: wrap
-        align-items: center
-        &__leftColumn
-            display: block
-            margin-right: 30px
-            position: relative
-        &__rightColumn
-            display: block
-            position: relative
-        &__leftColumn p:nth-child(2)
-            padding: 17px 0
-        &__rightColumn p:nth-child(2)
-            padding: 3px 0
-        &__leftColumn::before
-            content: ""
-            width: 112px
-            height: 247px
-            background: url(../images/dotsquare.png) no-repeat
+
+.timeline 
+    position: relative
+    max-width: 1200px
+    margin: 0 auto
+    &::after 
+        content: ''
+        position: absolute
+        width: 6px
+        background-color: #375aab
+        top: 0
+        bottom: 0
+        left: 50%
+        margin-left: -3px
+    &_container 
+        padding: 10px 40px
+        position: relative
+        background-color: inherit
+        width: 50%
+        &::after 
+            content: ''
             position: absolute
-            top: -32px
-            left: -113px
-        & p
-            line-height: 17px
-            letter-spacing: 0.03em
+            width: 25px
+            height: 25px
+            right: -17px
+            background-color: white
+            border: 4px solid #375aab
+            top: 15px
+            border-radius: 50%
+            z-index: 1
+
+.left 
+    left: 0
+    &::before 
+        content: " "
+        height: 0
+        position: absolute
+        top: 22px
+        width: 0
+        z-index: 1
+        right: 30px
+        border: medium solid white
+        border-width: 10px 0 10px 10px
+        border-color: transparent transparent transparent #0A122D
+.right 
+    left: 50%
+    &::before 
+        content: " "
+        height: 0
+        position: absolute
+        top: 22px
+        width: 0
+        z-index: 1
+        left: 30px
+        border: 1px solid #0A122D
+        border-width: 10px 10px 10px 0
+        border-color: transparent #0A122D transparent transparent
+    &::after 
+        left: -16px
+.contentt 
+    padding: 20px 30px
+    border: 1px solid #0A122D
+    position: relative
+    border-radius: 6px
+
 .ourProgress
     margin-top: 40px
     &-title
@@ -75,5 +114,22 @@
                 text-align: center
                 letter-spacing: 0.2em
 
-
+@media screen and (max-width: 600px) 
+ 
+    .timeline
+        &::after 
+            left: 31px
+        &_container 
+            width: 100%
+            padding-left: 70px
+            padding-right: 25px 
+            &::before 
+                left: 60px
+                border: medium solid #0A122D
+                border-width: 10px 10px 10px 0
+                border-color: transparent white transparent transparent
+    .left::after, .right::after 
+        left: 15px
+    .right 
+        left: 0%
             

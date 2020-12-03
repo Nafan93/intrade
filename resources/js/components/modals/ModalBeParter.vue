@@ -73,7 +73,7 @@ export default {
         this.loaded = false;
         this.success = false;
         this.errors = {};
-        axios.post('/bePartner', this.fields).then(response => {
+        axios.post('/bepartner', this.fields).then(response => {
           this.fields = {}; //Clear input fields.
           this.loaded = true;
           this.success = true;

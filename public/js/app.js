@@ -2257,7 +2257,7 @@ __webpack_require__.r(__webpack_exports__);
         this.loaded = false;
         this.success = false;
         this.errors = {};
-        axios.post('/bePartner', this.fields).then(function (response) {
+        axios.post('/bepartner', this.fields).then(function (response) {
           _this.fields = {}; //Clear input fields.
 
           _this.loaded = true;
@@ -48080,6 +48080,8 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', function () {
     var navbar = document.querySelector('#navbar');
     var menuBtnLine = document.querySelectorAll('.menu-btn__line');
+    var totopf = document.querySelector('#totopf');
+    var totop = document.querySelector('#totop');
     var scrollDistance = window.scrollY;
 
     if (scrollDistance <= 40) {
@@ -48097,6 +48099,14 @@ document.addEventListener('DOMContentLoaded', function () {
         el.classList.add('menu-btn__line_white');
       }
     });
+
+    if (scrollDistance <= 620) {
+      totopf.style.cssText = "display:none";
+      totop.style.cssText = "display:none";
+    } else {
+      totopf.style.cssText = "display: block; position: fixed; left: 10px; bottom: 10px; color: #999";
+      totop.style.cssText = "display: block; position: fixed; left: 10px; bottom: 10px; color: #999";
+    }
   }); //
   //плавная прокрутка
 

@@ -19,9 +19,10 @@
             <div class="wrapper">
 
                 @yield('content')
-                
+                   
             </div>           
             @include('layouts.footer')
+            
         </div>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

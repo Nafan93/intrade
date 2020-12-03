@@ -85,6 +85,7 @@
         <div class="footer_bottom">
             <div class="footer_reg-data">
                 <div class="footer_reg-data_ogrn">
+                    <a href="#" id="totopf" style="display: none" uk-totop uk-scroll></a>  
                     <span>ОГРН 1022601952581</span>
                 </div>
                 <!-- /.footer_reg-data_ogrn -->
@@ -103,6 +104,6 @@
             
         </div>
         <!-- /.footer_bottom -->
-        
+           
     </div>
 </div>

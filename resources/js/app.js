@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('#navbar');
         const menuBtnLine = document.querySelectorAll('.menu-btn__line');
+        const totopf = document.querySelector('#totopf');
+        const totop = document.querySelector('#totop');
 
         let scrollDistance = window.scrollY;
 
@@ -97,6 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('menu-btn__line_white');
             }
         });
+
+        if (scrollDistance <= 620) {
+            totopf.style.cssText = "display:none";
+            totop.style.cssText = "display:none";
+        } else {
+            totopf.style.cssText = "display: block; position: fixed; left: 10px; bottom: 10px; color: #999"
+            totop.style.cssText = "display: block; position: fixed; left: 10px; bottom: 10px; color: #999"
+        }
     });
     //
     //плавная прокрутка

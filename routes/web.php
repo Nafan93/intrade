@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'IndexController@index')->name('index');
 Route::post('/callback', 'IndexController@callback')->name('callback');
 Route::post('/send', 'IndexController@send')->name('send');
-Route::post('/bepartner', 'IndexController@bePartner')->name('bePartner');
+Route::post('/bepartner', 'IndexController@bePartner')->name('bepartner');
 //Catalog
 Route::get('/catalog', 'ProductController@catalog')->name('catalog');
 //Pages
