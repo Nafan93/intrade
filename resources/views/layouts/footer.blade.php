@@ -2,10 +2,10 @@
     <div class="container">
         <div class="footer-wrap">
             <div class="footer_logo">
-                <a href="{{ route('index') }}"><img src="{{ asset('/images/logo.svg') }}" alt="Интрейд лого"></a>
+                <a href="{{ route('index') }}"><img src="{{ asset('/images/logo.png') }}" alt="Интрейд лого"></a>
             </div>
             <div class="footer_menu">
-                <div class="footer_menu__left"> 
+                <div class="footer_menu__left">
                     <legend>Навигация</legend>
                     <div class="footer_menu_list">
                         @if (isset($menusf))
@@ -23,7 +23,7 @@
                         <a href="/docs/privacy">Политика конфиденциальности</a>
                         <a href="/docs/terms">Пользовательское соглашение</a>
                         <a href='{{ url('sitemap.xml') }}' rel='alternate' title='Sitemap' type='application/rss+xml'>Карта сайта</a>
-                        @auth 
+                        @auth
                             <ul class="uk-navbar-nav">
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                     Выйти
@@ -32,7 +32,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </ul>
-                        @endauth 
+                        @endauth
                     </div>
                </div>
                <!-- /.footer_menu__middle -->
@@ -54,7 +54,7 @@
                             <div>
                                 <a href="tel:+78613762108">&nbsp;8(861-37) 6-21-08, </a>
                                 <a href="tel:+78613762109">&nbsp;8(861-37) 6-21-09</a>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                     <div class="footer_contacts_city">
@@ -74,9 +74,9 @@
                     </div>
                     <div class="footer_contacts_work-time">
                         <i uk-icon="icon: clock"></i>
-                        <span>&nbsp;ПН — ПТ 10:00 — 17:00 </span>    
+                        <span>&nbsp;ПН — ПТ 10:00 — 17:00 </span>
                     </div>
-                    
+
                </div>
                <!-- /.footer_menu__right -->
             </div>
@@ -85,7 +85,7 @@
         <div class="footer_bottom">
             <div class="footer_reg-data">
                 <div class="footer_reg-data_ogrn">
-                    <a href="#" id="totopf" style="display: none" uk-totop uk-scroll></a>  
+                    <a href="#" id="totopf" style="display: none" uk-totop uk-scroll></a>
                     <span>ОГРН 1022601952581</span>
                 </div>
                 <!-- /.footer_reg-data_ogrn -->
@@ -97,13 +97,13 @@
             <!-- /.footer_reg-data -->
             <div class="footer-copyright">
                 <span>© ООО Интрейд, 1999 — {{ date('Y') }}</span>
-    
+
             </div>
             <!-- /.footer-copyright -->
-            
-            
+
+
         </div>
         <!-- /.footer_bottom -->
-           
+
     </div>
 </div>
