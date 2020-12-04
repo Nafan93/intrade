@@ -12,6 +12,7 @@ use App\Mail\OrderCreated;
 use App\Mail\NewOrder;
 
 use Telegram\Bot\Laravel\Facades\Telegram;
+use Telegram\Bot\Exceptions\TelegramResponseException;
 use Telegram\Bot\Api;
 
 use App\Manufacturer;
@@ -20,6 +21,8 @@ use App\Category;
 use App\Product;
 use App\Order;
 use App\Menu;
+use App\User;
+use App\Role;
 
 class ProductController extends Controller
 {
@@ -78,7 +81,7 @@ class ProductController extends Controller
         $product = Product::select(
             ['id','name','alias','description','product_price','meta_title','meta_description','meta_keywords','show_on_home']
             )->where('alias', $url)->first();
-        
+           
         return view ('pages.catalog.show')->with(['product' => $product,
                     'categories' => Category::get()            
                     ]);
@@ -102,21 +105,28 @@ class ProductController extends Controller
         ]);
         
         $order->save();
-       
-        $adminEmail = config('app.adminEmail');
         
-        Mail::to($adminEmail)->send(new NewOrder($order));
+        $admins=  User::whereHas('roles', function($query) {
+            $query->where('name', '=', 'Admin');
+        })->get(); 
         
-        Telegram::sendMessage([
-            'chat_id' => config('app.chatId'),
-            'text' => trans('messages.order',[
-                'url' => config('app.url'),
-                'product' => $order->product->name,
-                'name' => $order->name,
-                'phone' => $order->phone,
-                'email' => $order->email
-            ])
-        ]);
+        foreach($admins as $admin) {
+            Mail::to($admin->email)->send(new NewOrder($order));
+            try {
+                Telegram::sendMessage([
+                    'chat_id' => $admin->chat_id,
+                    'text' => trans('messages.order',[
+                        'url' => config('app.url'),
+                        'product' => $order->product->name,
+                        'name' => $order->name,
+                        'phone' => $order->phone,
+                        'email' => $order->email
+                    ])
+                ]);
+            } catch (TelegramResponseException $e) {
+                echo 'block';
+            }
+        } 
     }
 
     //Back-end

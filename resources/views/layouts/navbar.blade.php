@@ -22,7 +22,7 @@
         <div class="navbar-wrap_1">
         <div class="logo  ">
             <a href="{{ $url=route('index') }}" class="   logo__link">
-                <img src="{{ asset('/images/logo.svg') }}" alt="Интрейд лого">
+                <img src="{{ asset('/images/logo.png') }}" alt="Интрейд лого">
             </a>
             <!-- /.logo_link -->
         </div>

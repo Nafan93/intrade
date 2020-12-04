@@ -7,7 +7,7 @@
                     </div>
                     <div class="section-head__description">
                         <p>В течение многих лет компания Интрейд <br>
-                            действует исключительно в интересах своих клиентов  
+                            действует исключительно в интересах своих клиентов
                         </p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="uk-padding uk-flex uk-flex-center uk-button uk-button-text">Прочитать больше</a>      
+                      <a href="#" class="uk-padding uk-flex uk-flex-center uk-button uk-button-text">Узнать больше</a>
                         <our-progress> </our-progress>
                     </div>
                 </div>
