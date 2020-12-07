@@ -6,18 +6,20 @@ use Config;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-
 use App\Mail\OrderCreated;
 use App\Mail\NewOrder;
 
+use Telegram\Bot\Exceptions\TelegramResponseException;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Telegram\Bot\Api;
 
-use App\Menu; 
-use App\Product;
-Use App\Category;
 use App\Manufacturer;
+Use App\Category;
+use App\Product;
 use App\Order;
+use App\Menu; 
+use App\User;
+use App\Role;
 
 class IndexController extends Controller
 {
@@ -61,37 +63,46 @@ class IndexController extends Controller
         ]);
         
         $order->save();
-       
-        $adminEmail = config('app.adminEmail');
-        $url = config('app.url');
-        $name = $order->name;
-        $phone = $order->phone;
-        $email = $order->email;
+        
+        $products = Product::all();
+        $admins=  User::whereHas('roles', function($query) {
+            $query->where('name', '=', 'Admin');
+        })->get();
 
         if($order->product === null) {
-            Mail::to($order->email)->send(new OrderCreated($order));
-            Telegram::sendMessage([
-                'chat_id' => config('app.chatId'),
-                'text' => trans('messages.pricelist',[
-                    'url' => $url,
-                    'name' => $name,
-                    'phone' => $phone,
-                    'email' => $email
-                ])
-            ]);
-
+            Mail::to($order->email)->send(new OrderCreated($order, $products));
+            foreach($admins as $admin) {
+                try {
+                    Telegram::sendMessage([
+                        'chat_id' => $admin->chat_id,
+                        'text' => trans('messages.pricelist',[
+                            'url' => config('app.url'),
+                            'name' => $order->name,
+                            'email' => $order->email
+                        ])
+                    ]);
+                } catch (TelegramResponseException $e) {
+                    echo 'block';
+                }
+            }
         } else {
-            Mail::to($adminEmail)->send(new NewOrder($order));
-            Telegram::sendMessage([
-                'chat_id' => config('app.chatId'),
-                'text' => trans('messages.order',[
-                    'url' => $url,
-                    'product' => $order->product->name,
-                    'name' => $name,
-                    'phone' => $phone,
-                    'email' => $email
-                ])
-            ]);
+            foreach($admins as $admin) {
+                Mail::to($admin->email)->send(new NewOrder($order));
+                try {
+                    Telegram::sendMessage([
+                        'chat_id' => $admin->chat_id,
+                        'text' => trans('messages.order',[
+                            'url' => config('app.url'),
+                            'product' => $order->product->name,
+                            'name' => $order->name,
+                            'phone' => $order->phone,
+                            'email' => $order->email
+                        ])
+                    ]);
+                } catch (TelegramResponseException $e) {
+                    echo 'block';
+                }
+            }
         }
         
     }

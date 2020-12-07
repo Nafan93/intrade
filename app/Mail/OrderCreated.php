@@ -16,9 +16,11 @@ class OrderCreated extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($order, $products)
     {
-        //
+        $this->order = $order;
+        $this->products = $products;
+        
     }
 
     /**
@@ -28,6 +30,12 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.order')->subject('Прайс-лист ООО "Интрейд"');
+        return $this->view('mail.order')->subject('Прайс-лист ООО "Интрейд"')
+                                        ->with(['order', 'products'])
+                                        ->with([
+                                            'name' => $this->order->name,
+                                            'email' => $this->order->email,
+                                            'products' => $this->products
+                                            ]);
     }
 }
