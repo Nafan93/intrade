@@ -30,29 +30,35 @@
                 </div> 
                 
             </div>
-            <span class="uk-text-lead uk-text-meta">Категория:
-                @forelse ($product->categories as $category)
-                    <a href="{{ route('categories.index') }}"> {{ $category->category_name }} </a>
-                    @empty
-                        <span>Без категории</span>
-                @endforelse
-            </span>
-            <span class="uk-text-lead uk-text-meta">Производители:
-                @forelse ($product->manufacturers as $manufacturer)
-                    <a href="{{ route('manufacturers.show', $manufacturer->manufacturer_alias) }}"> {{ $manufacturer->name }} </a>
-                    @empty
-                        <span>  </span>
-                @endforelse
-            </span>
-            <div class="uk-margin-top uk-flex">
+            <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right uk-padding-remove-down">
+                <span class="uk-text-lead uk-text-meta">Категория:
+                    @forelse ($product->categories as $category)
+                        <a href="{{ route('categories.index') }}"> {{ $category->category_name }} </a>
+                        @empty
+                            <span>Без категории</span>
+                    @endforelse
+                </span>
+                <span class="uk-text-lead uk-text-meta">Производители:
+                    @forelse ($product->manufacturers as $manufacturer)
+                        <a href="{{ route('manufacturers.show', $manufacturer->manufacturer_alias) }}"> {{ $manufacturer->name }} </a>
+                        @empty
+                            <span>  </span>
+                    @endforelse
+                </span>
+            </div>
+            <div class="uk-flex">
                 @if (!empty($product->image))
             <div class="uk-width-1-3 uk-margin-right">
                 <img src="{{ $product->image }}" alt="{{ $product->name }}" style="width: 200px">
             </div>  
             @endif    
             <div>
-                <p class="uk-text-lead uk-text-small"> {{ $product->description }} </p>
-                <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
+                <p class="uk-text-lead uk-text-small"> {!! $product->description !!} </p>
+                @if ($product->product_price != 0)
+                    <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
+                @else
+                    <p class="uk-text-lead uk-text-small">Цена договорная</p>
+                @endif
             </div>
             </div>
             <div class="uk-flex uk-flex-middle uk-flex-column uk-margin-top">

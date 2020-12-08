@@ -42,9 +42,17 @@
                                     </form>
                                 </div>    
                             </div>
-                            {!! $product->short_desc !!}
-                            {{ $product->description }}
-                            <p class="uk-text-lead">Цена: {{ $product->product_price }} рублей/тонна</p>
+                            
+                            <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right">
+                                {!! Str::words( $product->description, 17) !!}
+                            </div>
+                            
+                            @if ($product->product_price != 0)
+                                <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
+                            @else
+                                <p class="uk-text-lead uk-text-small">Цена договорная</p>
+                            @endif
+                            
                             <span class="uk-text-lead">Категория:
                                 @forelse ($product->categories as $category)
                                     <a href="{{ route('categories.show', $category->category_alias) }}"> {{ $category->category_name }} </a>

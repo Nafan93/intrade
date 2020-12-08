@@ -24,28 +24,42 @@
                                     </h3>
                                 </div> 
                                 
-                                <!-- Category -->
-                                @foreach ($product->categories as $category)
-                                    <div class="product-card__category transparentText__small">
-                                        <a href="{{ route('categoryShow', $category->category_alias) }}"> {{ $category->category_name }} </a>
+                                <div>
+                                    <div>
+                                        <!-- Category -->
+                                        @foreach ($product->categories as $category)
+                                            <div class="product-card__category transparentText__small">
+                                                <a href="{{ route('categoryShow', $category->category_alias) }}"> {{ $category->category_name }} </a>
+                                            </div>
+                                        @endforeach
+                                        <!--/ .Category --> 
                                     </div>
-                                @endforeach
-                                <!--/ .Category --> 
+
+                                    <div>
+                                        <!-- Manufacturer -->
+                                        @foreach ($product->manufacturers as $manufacturer)
+                                            <div class="product-card__manufacturer transparentText__small">
+                                                <a href="{{ route('manufacturerShow', $manufacturer->manufacturer_alias)}}"> {{ $manufacturer->name }} </span>
+                                            </div>
+                                        @endforeach
+                                        <!-- / .Manufacturer -->
+                                    </div>
+                                </div>
 
                                 <div class="product-card__desc">
-                                    <p href="">{{ Str::words( $product->description, 17) }}</p>
+                                    {!! Str::words( $product->description, 17) !!}
                                 </div>
                                 <div class="product-card__price">
-                                    <span>от {{ $product->product_price }} рублей/тонна</span>
+                                   
+                                    @if ($product->product_price != 0)
+                                        <span>от {{ $product->product_price }} рублей/тонна</span>
+                                    @else
+                                        <span>Цена договорная</span>
+                                    @endif
+                                    
                                 </div>
 
-                                <!-- Manufacturer -->
-                                @foreach ($product->manufacturers as $manufacturer)
-                                    <div class="product-card__manufacturer transparentText__small">
-                                        <a href="{{ route('manufacturerShow', $manufacturer->manufacturer_alias)}}"> {{ $manufacturer->name }} </span>
-                                    </div>
-                                @endforeach
-                                <!-- / .Manufacturer -->
+                               
 
                                 <div class="product-card__footer">
                                     <a href="#modal-product" class="uk-button uk-button-primary"  uk-toggle>Оставить заявку</a>

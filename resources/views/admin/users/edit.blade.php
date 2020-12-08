@@ -38,10 +38,29 @@
                                 <div class="uk-inline">
                                     <input type="text" class="uk-input uk-form-width-large" value="{{ $user->email }}" name="e-mail" placeholder="E-mail" disabled/>
                                 </div>  
-                            </div>    
-                            
-                                                
-                            <button type="submit" class="uk-button uk-button-primary">Применить</button>
+                            </div> 
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <input type="text" class="uk-input uk-form-width-large" value="{{ $user->chat_id }}" name="hat_id" placeholder="Телеграм чат ID"/>
+                                </div> 
+                                <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right">
+                                    <span>Что бы узнать свой чат ID, нужно отправить боту <a href="https://t.me/chatid_echo_bot">@chatid_echo_bot</a> команду <a href="https://t.me/chatid_echo_bot/start">/start</a></span>
+                                </div> 
+                            </div> 
+                            <!--  <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <input type="hidden" name="send_message" value="0">
+                                    <input type="checkbox" class="uk-checkbox" name="send_message"
+                                            value='1' {{ old('$user->send_message') ? 'checked' : '' }}
+                                                @if ($user->send_message === 1)
+                                                    checked
+                                                @endif
+                                    />
+                                    
+                                  <label for="meta_title"><span>Получать сообщения в <a href="https://t.me/IntradeBackOfficeBot" target="_blank"> @IntradeBackOfficeBot</a></span></label>
+                                </div>
+                            </div>-->
+                            <button type="submit" class="uk-button uk-button-primary">Сохранить</button>
                         </form>
             
                     </div>

@@ -81,7 +81,6 @@ class ProductController extends Controller
         $product = Product::select(
             ['id','name','alias','description','product_price','meta_title','meta_description','meta_keywords','show_on_home']
             )->where('alias', $url)->first();
-           
         return view ('pages.catalog.show')->with(['product' => $product,
                     'categories' => Category::get()            
                     ]);

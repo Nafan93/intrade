@@ -92,7 +92,7 @@
                     <div class="uk-margin">
                         <div class="uk-inline">
                             <label for="description">Описание</label>
-                            <textarea type="text" class="uk-textarea" name="description">
+                            <textarea type="text" class="uk-textarea tinymce-editor" name="description">
                                 {!! $product->description !!}
                             </textarea>
                         </div>

@@ -70,7 +70,7 @@ class ManufacturerController extends Controller
 
         $manufacturer = new Manufacturer($request->all());
         $manufacturer->save();
-        return redirect('/admin/manufacturers')->with('success', 'Производитель сохранена!');
+        return redirect('/dashboard/manufacturers')->with('success', 'Производитель сохранена!');
     }
 
     /**
@@ -120,7 +120,7 @@ class ManufacturerController extends Controller
         $manufacturer->meta_description = $request->get('meta_description');
         $manufacturer->save();
 
-        return redirect('/admin/manufacturers')->with('success', 'Производитель отредактирован');
+        return redirect('/dashboard/manufacturers')->with('success', 'Производитель отредактирован');
     }
 
     /**

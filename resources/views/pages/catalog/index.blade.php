@@ -45,8 +45,15 @@
                             @endforelse
                         </div>   
                         <!-- /.uk-article-meta -->
-                        <p class="uk-text-small" style="margin-top: 5px;">{{ Str::words( $product->description, 17) }}</p>
-                        <span class="uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</span>
+                        <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right">
+                            {!! Str::words( $product->description, 17) !!}
+                        </div>
+                        
+                        @if ($product->product_price != 0)
+                            <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
+                        @else
+                            <p class="uk-text-lead uk-text-small">Цена договорная</p>
+                        @endif
                     
                     </article>
                 </div>

@@ -32,19 +32,23 @@
               </div>
              
               @foreach ($users as $user)
-                <div class="uk-card uk-card-body uk-width-1-6@m">{{ $user->id }}</div>
-                <div class="uk-card uk-card-body uk-width-1-6@m">{{ $user->name }}</div>
-                <div class="uk-card uk-card-body uk-width-1-6@m">{{ $user->email }}</div>
+                <div class="uk-card uk-card-body uk-width-1-6@m"><span>{{ $user->id }}</span></div>
+                <div class="uk-card uk-card-body uk-width-1-6@m">
+                    <span>{{ $user->name }}</span>
+                </div>
+                <div class="uk-card uk-card-body uk-width-1-6@m"><span>{{ $user->email }}</span></div>
                 <div class="uk-card uk-card-body uk-width-1-6@m">
                     @forelse ($user->roles as $role)
-                        {{ $role->name }} <a href="#" class="uk-button uk-button-primary">Редактировать</a>
+                        <span>{{ $role->name }} </span>
                     @empty
-                        <a href="#" class="uk-button uk-button-primary">Редактировать</a>
+                       <span>Пользователь</span>
                     @endforelse
                 </div>
-                <div class="uk-card uk-card-body uk-width-1-6@m"></div>
+                <div class="uk-card uk-card-body uk-width-1-6@m"> 
+                    <a href="{{ route('users.edit', $user->id) }}" class="uk-button uk-button-primary">Редактировать</a>
+                </div>
                 <div class="uk-card uk-card-body uk-width-1-6@m">
-                    <a href="#" class="uk-button uk-button-danger">Удалить</a>
+                  <!--  <a href="#" class="uk-button uk-button-danger">Удалить</a>-->
                 </div>
               @endforeach
            </div>

@@ -1,6 +1,5 @@
 @extends('admin.home')
 
-
 @section('admincontent')
     <div class="uk-container uk-padding">
         <div aria-label="breadcrumb">
@@ -78,7 +77,7 @@
                         
                         <div class="uk-margin">
                             <div class="uk-inline">
-                                <textarea type="text" class="uk-textarea uk-form-width-large" name="description" rows=10 placeholder="Описание"></textarea>
+                                <textarea type="text" class="uk-textarea uk-form-width-large tinymce-editor" name="description" id="description" placeholder="Описание"></textarea>
                             </div>
                         </div>
                         <div class="uk-margin">
