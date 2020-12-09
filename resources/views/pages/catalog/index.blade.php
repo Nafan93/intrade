@@ -47,14 +47,14 @@
                         <!-- /.uk-article-meta -->
                         <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right">
                             {!! Str::words( $product->description, 17) !!}
-                        </div>
                         
                         @if ($product->product_price != 0)
                             <p class="uk-text-lead uk-text-small">Цена: {{ $product->product_price }} рублей/тонна</p>
                         @else
                             <p class="uk-text-lead uk-text-small">Цена договорная</p>
                         @endif
-                    
+                        
+                        </div>
                     </article>
                 </div>
                 <!-- /.catalog-card__body -->
