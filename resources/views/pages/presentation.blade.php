@@ -31,7 +31,7 @@
             смартфонов включает не только оптимальное изменение пропорций, но и учитывает
             особенности различных моделей управления интерфейсом.
         </p>
-        <img src="https://holmax.ru/wp-content/uploads/2015/11/devices.png" alt="">
+        <img src="{{ asset('images/presentation/devices.png') }}" alt="">
     </article>
 
     <article class="uk-article">
