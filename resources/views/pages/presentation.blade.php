@@ -38,12 +38,12 @@
         <h3 class="uk-article-title uk-text-uppercase">3. Навигация</h3>
         <p class="uk-text-lead">
             Навигация по сайту осуществляется с помощью основного меню, которое реализовано 
-            в компактном виде верху экрана пользователя, которое позволяет практично 
+            в компактном виде вверху страницы, которое позволяет практично 
             использовать пространство экрана.
         </p>
         <p class="uk-text-lead">
             На страницах каталога присутствует поиск по названию товара и расширенный фильтр, 
-            с возможностью фильтрации по категориям, производителям и цене
+            с возможностью фильтрации по категориям, производителям и цене.
         </p>
        <img src="{{ asset('images/presentation/filter.png') }}" alt="">
     </article>
@@ -56,8 +56,8 @@
             Во время оформления заявки пользователь оставляет в полях формы свое имя, номер 
             телефона и адрес электронной почты. 
             Данные формы отправляются на почтовые адреса всех зарегистрированных пользователей
-            сайта с ролью "администрантор" а также в телеграм бот 
-            <a class="uk-link-muted" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
+            сайта с ролью "Администрантор" а также в телеграм бот 
+            <a class="uk-link-muted" target="_blank" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
         </p>
         <p class="uk-text-lead">
             Прайс-лист формируется автоматически и отправляется по указанному пользователем адресу
@@ -74,7 +74,7 @@
             телефона и адрес электронной почты. 
             Данные формы отправляются на почтовые адреса всех зарегистрированных пользователей
             сайта с ролью "Администрантор" а также в телеграм бот 
-            <a class="uk-link-muted" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
+            <a class="uk-link-muted" target="_blank" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
         </p>
     </article>
     <article class="uk-article">
@@ -86,7 +86,7 @@
             изменения в поле "Chat_ID". Chat_ID представляет собой девятизначное цифровое 
             уникальное значение, присвоенное полльзователю при регистрации аккаунта.
             Что бы узнать Chat_ID нужно написать боту   
-            <a class="uk-link-muted" href="https://t.me/chatid_echo_bot">@chatid_echo_bot</a>
+            <a class="uk-link-muted" target="_blank" href="https://t.me/chatid_echo_bot">@chatid_echo_bot</a>
             в ответном сообщении бот пришлет Chat_ID
         </p>
     </article>
@@ -110,14 +110,14 @@
             Зачем нужен сертифик та сайте: <br>
             <ul class="uk-list uk-list-bullet uk-text-lead">
                 <li>Доверие посетителей;</li>
-                <li>Поисковые системы в вылаче отдают предпочтение сайтам с сертификатом;</li>
+                <li>Поисковые системы в выдаче отдают предпочтение сайтам с сертификатом;</li>
                 <li>Защищенное соединение.</li>
             </ul>
         </p>
         <img src="{{ asset('images/presentation/ssl.png') }}" alt="">
         <p class="uk-text-lead">
            На сайте реализован бесплатный автообновляемый сертификат от сертификационного центра 
-           <a class="uk-link-muted" href="https://letsencrypt.org/">Let’s Encrypt</a>
+           <a class="uk-link-muted" target="_blank" href="https://letsencrypt.org/">Let’s Encrypt</a>
         </p>
     </article>
     <article class="uk-article">
@@ -125,7 +125,7 @@
         <p class="uk-text-lead">
             Доступ к панели управления доступен только зарегистрированным пользователям с ролью
             "Администратор" по ссылке 
-            <a class="uk-link-muted" href="{{ route('admin') }}">https://intrade.infantyev.ru/dashboard</a>
+            <a class="uk-link-muted" target="_blank" href="{{ route('admin') }}">https://intrade.infantyev.ru/dashboard</a>
         </p>
         <p class="uk-text-lead">
             В панели управления можно создавать, редактировать и удалять продукцию, категории, производителей
@@ -143,8 +143,8 @@
             </ul>
         </p>
         <p class="uk-text-lead">
-            Данная версия сайта загружена на VDS сервер компании 
-            <a class="uk-link-muted"  href="https://timeweb.com/">TimeWeb.</a>
+            Данная версия сайта выгружена на VDS сервер компании 
+            <a class="uk-link-muted" target="_blank"  href="https://timeweb.com/">TimeWeb.</a>
             Стоимость аренды виртуального сервера с этой кофигурацией 4202 рубля в год.
         </p>
     </article>
