@@ -1,9 +1,18 @@
 @extends('layouts.app')
 <div class="uk-container">
     <div class="uk-padding uk-padding-remove-left uk-padding-remove-right">
-        <h1 class="uk-heading-medium uk-text-uppercase uk-text-bold">Презентация сайта <a href="{{ route('index') }}" target="_blank">ООО "Интрейд"</a> </h1>
+        <h1 class="uk-heading-medium uk-text-uppercase uk-text-bold">Презентация сайта 
+            <a href="{{ route('index') }}" target="_blank">ООО "Интрейд"</a> 
+        </h1>
     </div>
-
+    <article class="uk-article">
+       
+        <p class="uk-text-lead">
+           <a class="uk-button uk-botton-text" href="{{ route('index') }}" target="_blank">
+            Перейти на сайт 
+        </a>
+        </p>
+    </article>
     <article class="uk-article">
         <h3 class="uk-article-title uk-text-uppercase">1. Концепция сайта</h3>
         <p class="uk-text-lead">
@@ -121,6 +130,22 @@
         <p class="uk-text-lead">
             В панели управления можно создавать, редактировать и удалять продукцию, категории, производителей
             и пользователей. Просматривать заявки.
+        </p>
+    </article>
+    <article class="uk-article">
+        <h3 class="uk-article-title uk-text-uppercase">10. Стоимость содержания </h3>
+        <p class="uk-text-lead">
+            Для работы сайта требуется VDS сервервер с минимальными хараетеристиками:
+            <ul class="uk-list uk-list-bullet uk-text-lead">
+                <li>Процессор - 1*2.8ГГц</li>
+                <li>Оперативная память - 2Гб</li>
+                <li>Дисковое пространство - 30Гб</li>
+            </ul>
+        </p>
+        <p class="uk-text-lead">
+            Данная версия сайта загружена на VDS сервер компании 
+            <a class="uk-link-muted"  href="https://timeweb.com/">TimeWeb.</a>
+            Стоимость аренды виртуального сервера с этой кофигурацией 4202 рубля в год.
         </p>
     </article>
     
