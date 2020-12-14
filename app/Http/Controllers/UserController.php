@@ -25,10 +25,18 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        
         $user = User::find($id);
+
+        $user->update($request->except('roles'));
+        $user->chat_id = $request->get('chat_id');
+        $user->roles()->detach();
+            if($request->input('roles')):
+                $user->roles()->attach($request->input('roles'));
+            endif; 
         
         $user->save();
-
+ 
         return redirect('/dashboard/users')->with('success', 'Пользователь отредактирован');
     }
 }

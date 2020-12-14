@@ -36,6 +36,7 @@ Route::get('/manufacturers', 'ManufacturerController@listManufacturers')->name('
 Route::get('/manufacturers/{url}', 'ManufacturerController@showManufacturer')->name('manufacturerShow');
 //Sitemap
 Route::get('sitemap.xml', 'SitemapController@sitemap')->name('sitemap');
+Route::get('/presentation', 'IndexController@presentation')->name('presentation');
 
 // Back-end
 Auth::routes();

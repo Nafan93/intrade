@@ -32,14 +32,19 @@
               </div>
              
               @foreach ($users as $user)
-                <div class="uk-card uk-card-body uk-width-1-6@m"><span>{{ $user->id }}</span></div>
+                <div class="uk-card uk-card-body uk-width-1-6@m"><span>{{ $user->id }} {{ $user->chat_id }}</span></div>
                 <div class="uk-card uk-card-body uk-width-1-6@m">
                     <span>{{ $user->name }}</span>
                 </div>
                 <div class="uk-card uk-card-body uk-width-1-6@m"><span>{{ $user->email }}</span></div>
                 <div class="uk-card uk-card-body uk-width-1-6@m">
                     @forelse ($user->roles as $role)
-                        <span>{{ $role->name }} </span>
+                        @if ($role->name == "Admin")
+                            <span>Администратор</span>
+                        @endif
+                        @if ($role->name == "User")
+                            <span>Пользователь</span>
+                        @endif
                     @empty
                        <span>Пользователь</span>
                     @endforelse

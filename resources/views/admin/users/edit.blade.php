@@ -38,10 +38,31 @@
                                 <div class="uk-inline">
                                     <input type="text" class="uk-input uk-form-width-large" value="{{ $user->email }}" name="e-mail" placeholder="E-mail" disabled/>
                                 </div>  
+                            </div>
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <label for="categories">Роли</label>
+                                    <button class="uk-button uk-button-default" type="button">Выберите...</button>
+                                    <div uk-dropdown="mode: click" style="width: 100%">
+                                        <hr>
+                                        @foreach ($roles as $role)
+                                            <div class="controls">
+                                                <input type="radio" name="roles[]" value="{{ $role->id ?? '' }}"
+                                                    @isset($user->id)   
+                                                        @if ($user->roles->contains('id', $role->id))
+                                                            checked
+                                                        @endif
+                                                    @endisset
+                                                    class="uk-checkbox"/>
+                                                <label for="" class="uk-form-label">{{ $role->name }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div> 
                             <div class="uk-margin">
                                 <div class="uk-inline">
-                                    <input type="text" class="uk-input uk-form-width-large" value="{{ $user->chat_id }}" name="hat_id" placeholder="Телеграм чат ID"/>
+                                    <input type="text" class="uk-input uk-form-width-large" value="{{ $user->chat_id }}" name="chat_id" placeholder="Телеграм чат ID"/>
                                 </div> 
                                 <div class="uk-padding-small uk-padding-remove-left uk-padding-remove-right">
                                     <span>Что бы узнать свой чат ID, нужно отправить боту <a href="https://t.me/chatid_echo_bot">@chatid_echo_bot</a> команду <a href="https://t.me/chatid_echo_bot/start">/start</a></span>

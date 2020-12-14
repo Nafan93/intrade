@@ -155,4 +155,9 @@ class IndexController extends Controller
             ])
         ]);
     }
+
+    public function presentation()
+    {
+        return view('pages.presentation');
+    }
 }
