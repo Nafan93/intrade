@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <div class="uk-container">
     <div class="uk-padding uk-padding-remove-left uk-padding-remove-right">
-        <h1 class="uk-heading-medium uk-text-uppercase uk-text-bold">Презентация сайта ООО "Интрейд"</h1>
+        <h1 class="uk-heading-medium uk-text-uppercase uk-text-bold">Презентация сайта <a href="{{ route('index') }}" target="_blank">ООО "Интрейд"</a> </h1>
     </div>
 
     <article class="uk-article">
@@ -42,11 +42,15 @@
         <h3 class="uk-article-title uk-text-uppercase">4. Заказ прайс-листа</h3>
         <p class="uk-text-lead">
             На первом экране главной страницы сайта реализована кнопка заказа прайс-листа.
+        </p>
+        <p class="uk-text-lead">
             Во время оформления заявки пользователь оставляет в полях формы свое имя, номер 
             телефона и адрес электронной почты. 
             Данные формы отправляются на почтовые адреса всех зарегистрированных пользователей
             сайта с ролью "администрантор" а также в телеграм бот 
             <a class="uk-link-muted" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
+        </p>
+        <p class="uk-text-lead">
             Прайс-лист формируется автоматически и отправляется по указанному пользователем адресу
             электронной почты.
         </p>
@@ -54,11 +58,13 @@
     <article class="uk-article">
         <h3 class="uk-article-title uk-text-uppercase">5. Заказ коммерческого предложения</h3>
         <p class="uk-text-lead">
-            Заказ коммерческого предложения по продукту аналогичен заказу прайс-листа
+            Заказ коммерческого предложения по продукту аналогичен заказу прайс-листа.
+        </p>
+        <p class="uk-text-lead">
             Во время оформления заявки пользователь оставляет в полях формы свое имя, номер 
             телефона и адрес электронной почты. 
             Данные формы отправляются на почтовые адреса всех зарегистрированных пользователей
-            сайта с ролью "администрантор" а также в телеграм бот 
+            сайта с ролью "Администрантор" а также в телеграм бот 
             <a class="uk-link-muted" href="https://t.me/IntradeBackOfficeBot">@IntradeBackOfficeBot</a>
         </p>
     </article>
@@ -114,7 +120,7 @@
         </p>
         <p class="uk-text-lead">
             В панели управления можно создавать, редактировать и удалять продукцию, категории, производителей
-            и пользователей. Просматривать заявки
+            и пользователей. Просматривать заявки.
         </p>
     </article>
     
