@@ -19,6 +19,13 @@
                             <input class="uk-input uk-form-large" type="text" name="name" v-model="fields.name" placeholder="Ваше имя"/>
                             <div v-if="errors && errors.name" class="uk-text-danger">{{ errors.name[0] }}</div>
                         </div>
+                    </div> 
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: phone"></span>
+                            <masked-input class="uk-input uk-form-large" mask="\+\7 (111) 111-11-11"  type="phone" name="phone" v-model="fields.phone" placeholder="Номер телефона"/>
+                            <div v-if="errors && errors.phone" class="uk-text-danger">{{ errors.phone[0] }}</div>
+                        </div>
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline">
@@ -48,6 +55,7 @@
 </template>
 
 <script>
+import MaskedInput from 'vue-masked-input'
 export default {
   data() {
     return {
@@ -77,6 +85,9 @@ export default {
         });
       }
     },
+  },
+  components: {
+    MaskedInput
   },
 }
 </script>
